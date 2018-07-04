@@ -1,13 +1,21 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
-    <router-view/>
+    <home-page/>
   </div>
 </template>
 
 <script>
+import HomePage from '@/components/HomePage/HomePage.vue'
+import {RemFit} from './lib/mUtils.js'
+RemFit(document, window)
 export default {
-  name: 'App'
+  name: 'App',
+  created () {
+    this.$store.dispatch('getHeadNavArr')
+  },
+  components: {
+    HomePage
+  }
 }
 </script>
 
