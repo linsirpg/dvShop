@@ -1,7 +1,7 @@
 <template>
   <div class='HomePage'>
-    <Home-header/>
-    <Home-swiper/>
+    <Home-header :HomePageSwiperArr = "HomePageSwiperArr"/>
+    <Home-swiper :HomePageSwiperArr = "HomePageSwiperArr"/>
   </div>
 </template>
 
@@ -13,10 +13,14 @@ export default {
   components: {
     HomeSwiper,
     HomeHeader
+  },
+  computed: {
+    HomePageSwiperArr () {
+      return this.$store.state.HomePageSwiperArr
+    }
   }
 }
 </script>
 
-<style>
-
+<style lang='less' scope>
 </style>
