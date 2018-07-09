@@ -7,6 +7,7 @@ import store from './store'
 import './assets/css/index.less'
 import VueAwesomeSwiper from 'vue-awesome-swiper'
 import 'swiper/dist/css/swiper.css'
+import './lib/filter.js'
 Vue.config.productionTip = false
 Vue.use(VueAwesomeSwiper)
 /* eslint-disable no-new */

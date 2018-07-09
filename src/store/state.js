@@ -1,4 +1,11 @@
 export default{
   HomePageSwiperArr: [],
-  HomePageData: []
+  home: {
+    Banner: [],
+    AdversitingOne: [],
+    HotSaleProduct: []
+  },
+  MS: {
+    Banner: []
+  }
 }

@@ -145,7 +145,8 @@ export default {
 @rem: 46.875rem;
 .HomeHeader {
   position: fixed;
-  z-index: 1;
+  background: white;
+  z-index: 100;
   width: 100%;
   .HomeHeader-Search {
     padding-top: 10 / @rem;

@@ -1,25 +1,44 @@
 <template>
   <div>
-    <banner  :data = 'BANNER'></banner>
+    <Banner :Data='BANNER'/>
+    <Advertising-position :Data='AdversitingOne'/>
+    <Hot-sale :Data='HotSaleProduct' />
   </div>
 </template>
 
 <script>
-import banner from '@/components/HomePage/components/Banner.vue'
+import Banner from '@/components/HomePage/components/Banner.vue'
+import AdvertisingPosition from '@/components/HomePage/components/AdvertisingPosition.vue'
+import HotSale from '@/components/HomePage/components/HotSale.vue'
 export default {
+  data () {
+    return {
+    }
+  },
   created () {
-    this.$store.dispatch('getHome')
+    this.$store.dispatch('getHome', {app: this})
   },
   computed: {
     BANNER () {
-      if (this.$store.state.HomePageData[0]) {
-        console.log(this.$store.state.HomePageData, 2312)
-        return this.$store.state.HomePageData
+      if (this.$store.state.home.Banner.length) {
+        return this.$store.state.home.Banner
+      }
+    },
+    AdversitingOne () {
+      if (this.$store.state.home.AdversitingOne.length) {
+        return this.$store.state.home.AdversitingOne
+      }
+    },
+    HotSaleProduct () {
+      if (this.$store.state.home.HotSaleProduct.length) {
+        return this.$store.state.home.HotSaleProduct
       }
     }
   },
   components: {
-    banner
+    Banner,
+    AdvertisingPosition,
+    HotSale
   }
 }
 </script>
