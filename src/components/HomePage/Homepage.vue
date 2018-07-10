@@ -6,8 +6,8 @@
 </template>
 
 <script>
-import HomeSwiper from './HomeSwiper.vue'
-import HomeHeader from './HomeHeader.vue'
+import HomeSwiper from './components/HomeSwiper.vue'
+import HomeHeader from './components/HomeHeader.vue'
 export default {
   name: 'homePage',
   components: {

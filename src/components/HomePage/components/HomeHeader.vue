@@ -1,8 +1,8 @@
 <template>
   <div class='HomeHeader'>
     <div class='HomeHeader-Search'>
-        <a class='HomeHeader-Search-Image' href="https://gdtvshop.weixinmvp.com/Wap/Shop/Search.aspx"><img src = "../../assets/images/logo.png"  alt="" ></a>
-        <a class='HomeHeader-Message' href='https://gdtvshop.weixinmvp.com/wap/member/MessageIndex.aspx' > <img src="../../assets/images/message.png" alt=""  ></a>
+        <a class='HomeHeader-Search-Image' href="https://gdtvshop.weixinmvp.com/Wap/Shop/Search.aspx"><img src = "../../../assets/images/logo.png"  alt="" ></a>
+        <a class='HomeHeader-Message' href='https://gdtvshop.weixinmvp.com/wap/member/MessageIndex.aspx' > <img src="../../../assets/images/message.png" alt=""  ></a>
     </div>
       <swiper class='HomeHeader-Swiper' :options="HeaderSwiperOption" ref = "HeaderSwiper">
           <!-- <swiper-slide :class='"HomeHeader-Swiper"+index' v-for='(data, index) in HomePageSwiperArr' :key='index' >{{data.Title}}</swiper-slide> -->

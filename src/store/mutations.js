@@ -15,8 +15,25 @@ export default {
       state.home.AdversitingOne = res.data.Data
     })
     LoadAdvertList('PRODUCT', 'HOME_HOT', 1, 17, CheckTime).then(function (res) {
-      console.log(res)
       state.home.HotSaleProduct = res.data.Data
+    })
+    LoadAdvertList('IMAGE', 'HOMT_ADVERTISING_SPACE_2', 1, 100, CheckTime).then(function (res) {
+      state.home.AdversitingTwo = res.data.Data
+    })
+    LoadAdvertList('IMAGE', 'HOME_SPECIAL_AREA', 1, 100, CheckTime).then(function (res) {
+      state.home.HomeSpecialArea = res.data.Data
+    })
+    LoadAdvertList('IMAGE', 'HOMT_ADVERTISING_SPACE_3', 1, 100, CheckTime).then(function (res) {
+      state.home.AdversitingThree = res.data.Data
+    })
+    LoadAdvertList('PRODUCT', 'HOME_NEW_PRODUCT', 1, 6, CheckTime).then(function (res) {
+      state.home.NewProduct = res.data.Data
+    })
+    LoadAdvertList('IMAGE', 'HOME_ARTICLE', 1, 100, CheckTime).then(function (res) {
+      state.home.Aritcal = res.data.Data
+    })
+    LoadAdvertList('PRODUCT', 'HOME_RECOMMEND', 1, 10, CheckTime).then(function (res) {
+      state.home.RecommendProduct = res.data.Data
     })
   },
   getMs: function (state, id) {

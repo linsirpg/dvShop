@@ -3,7 +3,13 @@ export default{
   home: {
     Banner: [],
     AdversitingOne: [],
-    HotSaleProduct: []
+    AdversitingTwo: [],
+    HotSaleProduct: [],
+    HomeSpecialArea: [],
+    AdversitingThree: [],
+    NewProduct: [],
+    Aritcal: [],
+    RecommendProduct: []
   },
   MS: {
     Banner: []

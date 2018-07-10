@@ -1,11 +1,13 @@
 <template>
   <div id="app">
     <home-page/>
+    <Footer/>
   </div>
 </template>
 
 <script>
 import HomePage from '@/components/HomePage/HomePage.vue'
+import Footer from '@/components/Footer/Footer.vue'
 import {RemFit} from './lib/mUtils.js'
 RemFit(document, window)
 export default {
@@ -14,7 +16,8 @@ export default {
     this.$store.dispatch('getHeadNavArr')
   },
   components: {
-    HomePage
+    HomePage,
+    Footer
   }
 }
 </script>
