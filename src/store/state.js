@@ -12,6 +12,10 @@ export default{
     RecommendProduct: []
   },
   MS: {
-    Banner: []
+    Banner: [],
+    CatetoryList: [],
+    HotSaleList: [],
+    CatetoryArea: [],
+    NewProduct: []
   }
 }

@@ -41,5 +41,18 @@ export default {
     LoadAdvertList('IMAGE', 'MS_BANNER', 1, 100, CheckTime).then(function (res) {
       state.MS.Banner = res.data.Data
     })
+    LoadAdvertList('IMAGE', 'MS_CATEGORY', 1, 9, CheckTime).then(function (res) {
+      state.MS.CatetoryList = res.data.Data
+    })
+    LoadAdvertList('PRODUCT', 'MS_HOTPRODUCT', 1, 9, CheckTime).then(function (res) {
+      state.MS.HotSaleList = res.data.Data
+    })
+    LoadAdvertList('IMAGE', 'MS_AREA', 1, 9, CheckTime).then(function (res) {
+      state.MS.CatetoryArea = res.data.Data
+    })
+    LoadAdvertList('IMAGE', 'MS_NEW_PRODUCT', 1, 9, CheckTime).then(function (res) {
+      console.log(res.data.Data, 1313)
+      state.MS.NewProduct = res.data.Data
+    })
   }
 }
