@@ -15,6 +15,8 @@ export default {
   props: ['HomePageSwiperArr'],
   data () {
     return {
+      ActiveIndex: 0,
+      LimitHeight: 0,
       HomeSwiper: {
         resistanceRatio: 0,
         touchRatio: 0.6,
@@ -46,6 +48,16 @@ export default {
           This.HomeSwiperArr.slideTo(index, 0, false)
         }
       })
+      if (this.HomeSwiperArr && this.HomePageSwiperArr && this.HomePageSwiperArr.length) {
+        this.HomePageSwiperArr.map(function (data, index) {
+          if (data.Url === This.$route.name) {
+            This.ActiveIndex = index
+            This.LimitHeight = This.HomeSwiperArr.slides.eq(index)[0].clientHeight
+          }
+        })
+        document.getElementsByClassName('HomeSwiper')[0].style.height = this.LimitHeight + 'px'
+        document.getElementsByClassName('HomeSwiper')[0].style.overflow = 'hidden'
+      }
     }
   },
   mounted () {

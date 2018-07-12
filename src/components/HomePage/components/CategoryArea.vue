@@ -1,7 +1,7 @@
 <template>
   <div class='CategoryArea' v-if='Data && Data.length'>
     <a href="" v-for='(item, index) in Data' :key='index'>
-        <img :src="item.ImageUrl | AnalysisImg" alt="">
+      <img :src="item.ImageUrl | AnalysisImg" alt="">
     </a>
   </div>
 </template>
@@ -38,7 +38,6 @@ export default {
     &:nth-of-type(4) {
       width: 33.333%;
       height:280/@rem;
- 
     }
     &:nth-of-type(5) {
       width: 33.333%;
@@ -46,13 +45,10 @@ export default {
       border-right:1px solid #f6f6f6;
       box-sizing: border-box;
          height:280/@rem;
-
-      
     }
     &:nth-of-type(6) {
       width: 33.333%;
          height:280/@rem;
-      
     }
   }
 }
