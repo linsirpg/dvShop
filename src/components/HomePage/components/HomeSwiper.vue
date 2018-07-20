@@ -21,11 +21,28 @@ export default {
         resistanceRatio: 0,
         touchRatio: 0.6,
         on: {
+          touchStart () {
+            var ScTop = document.documentElement.scrollTop || document.body.scrollTop
+            if (this.app && this.app.HomePageSwiperArr) {
+              if (this.app.HomePageSwiperArr[this.activeIndex + 1]) {
+                this.slides.eq(this.activeIndex + 1).css('transform', 'translate3d(0,' + (ScTop - this.app.$store.state[this.app.HomePageSwiperArr[this.activeIndex + 1].Url + 'ScrollTop']) + 'px, 0)')
+              }
+              if (this.app.HomePageSwiperArr[this.activeIndex - 1]) {
+                this.slides.eq(this.activeIndex - 1).css('transform', 'translate3d(0,' + (ScTop - this.app.$store.state[this.app.HomePageSwiperArr[this.activeIndex - 1].Url + 'ScrollTop']) + 'px, 0)')
+              }
+            }
+          },
           transitionEnd () {
             var routerFrom = this.app.HomePageSwiperArr[this.activeIndex].Url
             this.app.$router.replace({
               name: routerFrom
             })
+            if (this.app && this.app.HomePageSwiperArr) {
+              this.app.LimitHeight = this.slides.eq(this.activeIndex)[0].clientHeight
+              document.getElementsByClassName('HomeSwiper')[0].style.height = this.app.LimitHeight + 'px'
+              document.documentElement.scrollTop = document.body.scrollTop = this.app.$store.state[this.app.HomePageSwiperArr[this.activeIndex].Url + 'ScrollTop']
+              this.slides.eq(this.activeIndex).css('transform', 'translate3d(0,0,0)')
+            }
           }
         }
       }

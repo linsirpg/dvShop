@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <home-page/>
-    <Footer/>
+    <!-- <Footer/> -->
   </div>
 </template>
 

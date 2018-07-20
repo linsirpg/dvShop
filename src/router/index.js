@@ -10,7 +10,7 @@ import qcbk from '@/components/HomePage/view/qcbk.vue'
 import whjy from '@/components/HomePage/view/whjy.vue'
 Vue.use(Router)
 
-export default new Router({
+const router = new Router({
   routes: [
     {
       path: '/home',
@@ -147,6 +147,18 @@ export default new Router({
       meta: {
         loadname: 'WHJY'
       }
+    },
+    {
+      path: '*',
+      redirect: '/home'
     }
   ]
 })
+router.beforeEach((to, from, next) => {
+  if (router.app.$store) {
+    router.app.$store.state[from.name + 'ScrollTop'] = document.documentElement.scrollTop || document.body.scrollTop
+    console.log(router.app.$store.state)
+  }
+  next()
+})
+export default router
