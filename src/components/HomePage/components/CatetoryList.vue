@@ -1,21 +1,21 @@
 <template>
   <div class='catetory' v-if='Data && Data.length'>
-    <div v-for='(item, index) in Data' :key='index' :class="Data.length != 5 && Data.length != 6? 'catetory-list'+(Data.length + 1) :'catetory-list'+(Data.length)">
+    <router-link  :to="{path:'/Catetory/'}"  v-for='(item, index) in Data' :key='index' :class="Data.length != 5 && Data.length != 6? 'catetory-list'+(Data.length + 1) :'catetory-list'+(Data.length)">
       <div class='catetory-list-Img'>
         <img :src="item.ImageUrl | AnalysisImg" alt="">
       </div>
       <div>
         {{item.Title}}
       </div>
-    </div>
-    <div :class="'catetory-list'+(Data.length+1)" v-if='Data.length != 5 && Data.length != 6'>
+    </router-link>
+    <router-link :to="{path:'/Catatory/'}" :class="'catetory-list'+(Data.length+1)" v-if='Data.length != 5 && Data.length != 6'>
       <div class='catetory-list-Img'>
         <img src="../../../assets/images/more.png" alt="">
       </div>
       <div>
         更多
       </div>
-    </div>
+    </router-link>
   </div>
 </template>
 

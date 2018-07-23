@@ -8,6 +8,8 @@ import myyp from '@/components/HomePage/view/myyp.vue'
 import mzgh from '@/components/HomePage/view/mzgh.vue'
 import qcbk from '@/components/HomePage/view/qcbk.vue'
 import whjy from '@/components/HomePage/view/whjy.vue'
+import catetory from '@/components/Catetory/Catetory.vue'
+
 Vue.use(Router)
 
 const router = new Router({
@@ -28,7 +30,8 @@ const router = new Router({
       meta: {
         loadname: 'home',
         KindName: 'HOME_RECOMMEND',
-        limit: 10
+        limit: 10,
+        Class: 'A'
       }
     },
     {
@@ -47,7 +50,8 @@ const router = new Router({
       meta: {
         loadname: 'MS',
         KindName: 'MS_HOTRECOMMEND_VERTICAL',
-        limit: 10
+        limit: 10,
+        Class: 'A'
       }
     },
     {
@@ -66,7 +70,8 @@ const router = new Router({
       meta: {
         loadname: 'JJJZ',
         KindName: 'JJJZ_HOTRECOMMEND_VERTICAL',
-        limit: 10
+        limit: 10,
+        Class: 'A'
       }
     },
     {
@@ -85,7 +90,8 @@ const router = new Router({
       meta: {
         loadname: 'JYDQ',
         KindName: 'JYDQ_HOTRECOMMEND_VERTICAL',
-        limit: 10
+        limit: 10,
+        Class: 'A'
       }
     },
     {
@@ -104,7 +110,8 @@ const router = new Router({
       meta: {
         loadname: 'MYYP',
         KindName: 'MYYP_HOTRECOMMEND_VERTICAL',
-        limit: 10
+        limit: 10,
+        Class: 'A'
       }
     },
     {
@@ -123,7 +130,8 @@ const router = new Router({
       meta: {
         loadname: 'MZGH',
         KindName: 'MZGH_HOTRECOMMEND_VERTICAL',
-        limit: 10
+        limit: 10,
+        Class: 'A'
       }
     },
     {
@@ -142,7 +150,8 @@ const router = new Router({
       meta: {
         loadname: 'QCBK',
         KindName: 'QCBK_HOTRECOMMEND_VERTICAL',
-        limit: 10
+        limit: 10,
+        Class: 'A'
       }
     },
     {
@@ -161,7 +170,16 @@ const router = new Router({
       meta: {
         loadname: 'WHJY',
         KindName: 'WHJY_HOTRECOMMEND_VERTICAL',
-        limit: 10
+        limit: 10,
+        Class: 'A'
+      }
+    },
+    {
+      path: '/Catetory/:id?',
+      name: 'Catetory',
+      component: catetory,
+      meta: {
+        Class: 'B'
       }
     },
     {

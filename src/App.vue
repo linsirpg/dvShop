@@ -1,7 +1,8 @@
 <template>
   <div id="app">
-    <home-page/>
+    <home-page v-if= "$route.meta.Class === 'A'"/>
     <!-- <Footer/> -->
+    <router-view ></router-view>
   </div>
 </template>
 <script>

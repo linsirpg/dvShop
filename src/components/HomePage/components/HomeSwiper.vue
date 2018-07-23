@@ -37,11 +37,16 @@ export default {
             this.app.$router.replace({
               name: routerFrom
             })
-            if (this.app && this.app.HomePageSwiperArr && this.app.$store.state[this.app.$route.name].Flage >= 6) {
+            if (this.app && this.app.HomePageSwiperArr) {
               this.app.LimitHeight = this.slides.eq(this.activeIndex)[0].clientHeight
-              document.getElementsByClassName('HomeSwiper')[0].style.height = this.app.LimitHeight + 'px'
-              document.documentElement.scrollTop = document.body.scrollTop = this.app.$store.state[this.app.HomePageSwiperArr[this.activeIndex].Url + 'ScrollTop']
-              this.slides.eq(this.activeIndex).css('transform', 'translate3d(0,0,0)')
+              if (this.app.$store.state[this.app.$route.name].Flage >= 6) {
+                document.getElementsByClassName('HomeSwiper')[0].style.height = this.app.LimitHeight + 'px'
+                document.documentElement.scrollTop = document.body.scrollTop = this.app.$store.state[this.app.HomePageSwiperArr[this.activeIndex].Url + 'ScrollTop']
+                this.slides.eq(this.activeIndex).css('transform', 'translate3d(0,0,0)')
+              } else {
+                document.documentElement.scrollTop = document.body.scrollTop = 0
+                this.slides.eq(this.activeIndex).css('transform', 'translate3d(0,0,0)')
+              }
             }
           }
         }
@@ -59,7 +64,7 @@ export default {
   },
   watch: {
     $route () {
-      if (!this.$store.state[this.$route.name].Flage) {
+      if (!this.$store.state[this.$route.name].Flage && this.$route.meta.Class === 'A') {
         this.$store.dispatch('get' + this.$route.name, {app: this})
       }
       var This = this
