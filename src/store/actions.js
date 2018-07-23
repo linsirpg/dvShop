@@ -2,11 +2,11 @@ export default {
   getHeadNavArr: function ({commit}) {
     commit('getHeadNavArr')
   },
-  getHome: function ({commit}, obj) {
-    commit('getHome', obj)
+  gethome: function ({commit}, obj) {
+    commit('gethome', obj)
   },
-  getMs: function ({commit}, obj) {
-    commit('getMs', obj)
+  getMS: function ({commit}, obj) {
+    commit('getMS', obj)
   },
   getMZGH: function ({commit}, obj) {
     commit('getMZGH', obj)
@@ -22,5 +22,11 @@ export default {
   },
   getWHJY: function ({commit}, obj) {
     commit('getWHJY', obj)
+  },
+  getMYYP: function ({commit}, obj) {
+    commit('getMYYP', obj)
+  },
+  getMoreDate: function ({commit}, obj) {
+    commit('getMoreDate', obj)
   }
 }

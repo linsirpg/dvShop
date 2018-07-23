@@ -37,7 +37,7 @@ export default {
             this.app.$router.replace({
               name: routerFrom
             })
-            if (this.app && this.app.HomePageSwiperArr) {
+            if (this.app && this.app.HomePageSwiperArr && this.app.$store.state[this.app.$route.name].Flage >= 6) {
               this.app.LimitHeight = this.slides.eq(this.activeIndex)[0].clientHeight
               document.getElementsByClassName('HomeSwiper')[0].style.height = this.app.LimitHeight + 'px'
               document.documentElement.scrollTop = document.body.scrollTop = this.app.$store.state[this.app.HomePageSwiperArr[this.activeIndex].Url + 'ScrollTop']
@@ -59,28 +59,36 @@ export default {
   },
   watch: {
     $route () {
+      if (!this.$store.state[this.$route.name].Flage) {
+        this.$store.dispatch('get' + this.$route.name, {app: this})
+      }
       var This = this
       this.HomePageSwiperArr.map(function (data, index) {
         if (data.Url === This.$route.meta.loadname) {
           This.HomeSwiperArr.slideTo(index, 0, false)
         }
       })
-      if (this.HomeSwiperArr && this.HomePageSwiperArr && this.HomePageSwiperArr.length) {
-        this.HomePageSwiperArr.map(function (data, index) {
-          if (data.Url === This.$route.name) {
-            This.ActiveIndex = index
-            This.LimitHeight = This.HomeSwiperArr.slides.eq(index)[0].clientHeight
-          }
-        })
-        document.getElementsByClassName('HomeSwiper')[0].style.height = this.LimitHeight + 'px'
-        document.getElementsByClassName('HomeSwiper')[0].style.overflow = 'hidden'
-      }
+      var HomeSwiperTimer = setInterval(function () {
+        if (This.HomeSwiperArr && This.HomePageSwiperArr && This.HomePageSwiperArr.length && This.$store.state[This.$route.name].Flage >= 6) {
+          This.HomePageSwiperArr.map(function (data, index) {
+            if (data.Url === This.$route.name) {
+              This.ActiveIndex = index
+              This.LimitHeight = This.HomeSwiperArr.slides.eq(index)[0].clientHeight
+            }
+          })
+          document.getElementsByClassName('HomeSwiper')[0].style.height = this.LimitHeight + 'px'
+          document.getElementsByClassName('HomeSwiper')[0].style.overflow = 'hidden'
+          clearInterval(HomeSwiperTimer)
+        }
+      }, 30)
     }
   },
   mounted () {
     this.HomeSwiperArr.app = this
+    window.addEventListener('scroll', this.AppScroll, false)
   },
   created () {
+    this.$store.dispatch('get' + this.$route.name, {app: this})
     var This = this
     var HomeSwiperTimer = setInterval(function () {
       if (This.HomePageSwiperArr && This.HomeSwiperArr && This.HomePageSwiperArr.length) {
@@ -92,6 +100,24 @@ export default {
         clearInterval(HomeSwiperTimer)
       }
     }, 30)
+  },
+  methods: {
+    AppScroll () {
+      var This = this
+      if (document.documentElement.scrollHeight - document.documentElement.scrollTop - document.documentElement.clientHeight < 300 || document.body.scrollHeight - document.body.scrollTop - document.documentElement.clientHeight < 300) {
+        this.$store.dispatch('getMoreDate', {KindName: this.$route.meta.KindName, RouteName: this.$route.name, limit: this.$route.meta.limit})
+      }
+      if (this.HomeSwiperArr && this.HomePageSwiperArr && this.$store.state[this.$route.name].Flage >= 6) {
+        this.HomePageSwiperArr.map(function (data, index) {
+          if (data.Url === This.$route.name) {
+            This.ActiveIndex = index
+            This.LimitHeight = This.HomeSwiperArr.slides.eq(index)[0].clientHeight
+          }
+        })
+        document.getElementsByClassName('HomeSwiper')[0].style.height = this.LimitHeight + 'px'
+        document.getElementsByClassName('HomeSwiper')[0].style.overflow = 'hidden'
+      }
+    }
   }
 }
 </script>

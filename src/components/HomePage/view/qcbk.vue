@@ -21,9 +21,11 @@ export default {
     return {
     }
   },
-  created () {
-    this.$store.dispatch('getQCBK', {})
-  },
+  // created () {
+  //   if(this.$route.meta.name == 'QCBK'){
+  //     this.$store.dispatch('getQCBK', {})
+  //   }
+  // },
   computed: {
     BANNER () {
       if (this.$store.state.QCBK.Banner.length) {

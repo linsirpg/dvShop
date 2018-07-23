@@ -21,9 +21,11 @@ export default {
     return {
     }
   },
-  created () {
-    this.$store.dispatch('getWHJY', {})
-  },
+  // created () {
+  //   if(this.$route.meta.name == 'WHJY'){
+  //     this.$store.dispatch('getWHJY', {})
+  //   }
+  // },
   computed: {
     BANNER () {
       if (this.$store.state.WHJY.Banner.length) {

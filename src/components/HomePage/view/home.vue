@@ -25,9 +25,11 @@ export default {
     return {
     }
   },
-  created () {
-    this.$store.dispatch('getHome', {app: this})
-  },
+  // created () {
+  //   if(this.$route.meta.name == 'home'){
+  //     this.$store.dispatch('getHome', {app: this})
+  //   }
+  // },
   computed: {
     BANNER () {
       if (this.$store.state.home.Banner.length) {

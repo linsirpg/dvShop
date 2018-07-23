@@ -26,7 +26,9 @@ const router = new Router({
         whjy: whjy
       },
       meta: {
-        loadname: 'home'
+        loadname: 'home',
+        KindName: 'HOME_RECOMMEND',
+        limit: 10
       }
     },
     {
@@ -43,7 +45,9 @@ const router = new Router({
         whjy: whjy
       },
       meta: {
-        loadname: 'MS'
+        loadname: 'MS',
+        KindName: 'MS_HOTRECOMMEND_VERTICAL',
+        limit: 10
       }
     },
     {
@@ -60,7 +64,9 @@ const router = new Router({
         whjy: whjy
       },
       meta: {
-        loadname: 'JJJZ'
+        loadname: 'JJJZ',
+        KindName: 'JJJZ_HOTRECOMMEND_VERTICAL',
+        limit: 10
       }
     },
     {
@@ -77,7 +83,9 @@ const router = new Router({
         whjy: whjy
       },
       meta: {
-        loadname: 'JYDQ'
+        loadname: 'JYDQ',
+        KindName: 'JYDQ_HOTRECOMMEND_VERTICAL',
+        limit: 10
       }
     },
     {
@@ -94,7 +102,9 @@ const router = new Router({
         whjy: whjy
       },
       meta: {
-        loadname: 'MYYP'
+        loadname: 'MYYP',
+        KindName: 'MYYP_HOTRECOMMEND_VERTICAL',
+        limit: 10
       }
     },
     {
@@ -111,7 +121,9 @@ const router = new Router({
         whjy: whjy
       },
       meta: {
-        loadname: 'MZGH'
+        loadname: 'MZGH',
+        KindName: 'MZGH_HOTRECOMMEND_VERTICAL',
+        limit: 10
       }
     },
     {
@@ -128,7 +140,9 @@ const router = new Router({
         whjy: whjy
       },
       meta: {
-        loadname: 'QCBK'
+        loadname: 'QCBK',
+        KindName: 'QCBK_HOTRECOMMEND_VERTICAL',
+        limit: 10
       }
     },
     {
@@ -145,7 +159,9 @@ const router = new Router({
         whjy: whjy
       },
       meta: {
-        loadname: 'WHJY'
+        loadname: 'WHJY',
+        KindName: 'WHJY_HOTRECOMMEND_VERTICAL',
+        limit: 10
       }
     },
     {
@@ -157,7 +173,6 @@ const router = new Router({
 router.beforeEach((to, from, next) => {
   if (router.app.$store) {
     router.app.$store.state[from.name + 'ScrollTop'] = document.documentElement.scrollTop || document.body.scrollTop
-    console.log(router.app.$store.state)
   }
   next()
 })

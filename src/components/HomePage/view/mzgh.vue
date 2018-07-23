@@ -21,9 +21,11 @@ export default {
     return {
     }
   },
-  created () {
-    this.$store.dispatch('getMZGH', {})
-  },
+  // created () {
+  //   if(this.$route.meta.name == 'MZGH'){
+  //     this.$store.dispatch('getMZGH', {})
+  //   }
+  // },
   computed: {
     BANNER () {
       if (this.$store.state.MZGH.Banner.length) {

@@ -21,9 +21,11 @@ export default {
     return {
     }
   },
-  created () {
-    this.$store.dispatch('getMs', {})
-  },
+  // created () {
+  //   if(this.$route.meta.name == 'Ms'){
+  //     this.$store.dispatch('getMs', {})
+  //   }
+  // },
   computed: {
     BANNER () {
       if (this.$store.state.MS.Banner.length) {

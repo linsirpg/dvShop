@@ -4,7 +4,6 @@
     <!-- <Footer/> -->
   </div>
 </template>
-
 <script>
 import HomePage from '@/components/HomePage/HomePage.vue'
 import Footer from '@/components/Footer/Footer.vue'
@@ -18,10 +17,10 @@ export default {
   components: {
     HomePage,
     Footer
+  },
+  methods: {
+  },
+  mounted () {
   }
 }
 </script>
-
-<style>
-
-</style>

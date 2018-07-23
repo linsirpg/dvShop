@@ -21,29 +21,26 @@ export default {
     return {
     }
   },
-  created () {
-    this.$store.dispatch('getMZGH', {})
-  },
   computed: {
     BANNER () {
-      if (this.$store.state.MZGH.Banner.length) {
-        return this.$store.state.MZGH.Banner
+      if (this.$store.state.MYYP.Banner.length) {
+        return this.$store.state.MYYP.Banner
       }
     },
     Catetory () {
-      return this.$store.state.MZGH.CatetoryList
+      return this.$store.state.MYYP.CatetoryList
     },
     HotSaleList () {
-      return this.$store.state.MZGH.HotSaleList
+      return this.$store.state.MYYP.HotSaleList
     },
     CatetoryArea () {
-      return this.$store.state.MZGH.CatetoryArea
+      return this.$store.state.MYYP.CatetoryArea
     },
     NewProduct () {
-      return this.$store.state.MZGH.NewProduct
+      return this.$store.state.MYYP.NewProduct
     },
     RecommendProduct () {
-      return this.$store.state.MZGH.RecommendProduct
+      return this.$store.state.MYYP.RecommendProduct
     }
   },
   components: {

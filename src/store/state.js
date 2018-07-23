@@ -9,7 +9,8 @@ export default{
     AdversitingThree: [],
     NewProduct: [],
     Aritcal: [],
-    RecommendProduct: []
+    RecommendProduct: [],
+    Flage: 0
   },
   MS: {
     Banner: [],
@@ -17,7 +18,8 @@ export default{
     HotSaleList: [],
     CatetoryArea: [],
     NewProduct: [],
-    RecommendProduct: []
+    RecommendProduct: [],
+    Flage: 0
   },
   MZGH: {
     Banner: [],
@@ -25,7 +27,17 @@ export default{
     HotSaleList: [],
     CatetoryArea: [],
     NewProduct: [],
-    RecommendProduct: []
+    RecommendProduct: [],
+    Flage: 0
+  },
+  MYYP: {
+    Banner: [],
+    CatetoryList: [],
+    HotSaleList: [],
+    CatetoryArea: [],
+    NewProduct: [],
+    RecommendProduct: [],
+    Flage: 0
   },
   JJJZ: {
     Banner: [],
@@ -33,7 +45,8 @@ export default{
     HotSaleList: [],
     CatetoryArea: [],
     NewProduct: [],
-    RecommendProduct: []
+    RecommendProduct: [],
+    Flage: 0
   },
   QCBK: {
     Banner: [],
@@ -41,7 +54,8 @@ export default{
     HotSaleList: [],
     CatetoryArea: [],
     NewProduct: [],
-    RecommendProduct: []
+    RecommendProduct: [],
+    Flage: 0
   },
   JYDQ: {
     Banner: [],
@@ -49,7 +63,8 @@ export default{
     HotSaleList: [],
     CatetoryArea: [],
     NewProduct: [],
-    RecommendProduct: []
+    RecommendProduct: [],
+    Flage: 0
   },
   WHJY: {
     Banner: [],
@@ -57,6 +72,7 @@ export default{
     HotSaleList: [],
     CatetoryArea: [],
     NewProduct: [],
-    RecommendProduct: []
+    RecommendProduct: [],
+    Flage: 0
   }
 }
