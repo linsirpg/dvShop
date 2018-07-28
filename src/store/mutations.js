@@ -1,4 +1,4 @@
-import {LoadAdvertList} from '@/server'
+import {LoadAdvertList, LoadProductByCate} from '@/server'
 export default {
   getHeadNavArr (state) {
     var CheckTime = ''
@@ -19,7 +19,7 @@ export default {
       state.home.AdversitingOne = res.data.Data
       state.home.Flage += 1
     })
-    LoadAdvertList('PRODUCT', 'HOME_HOT', 1, 17, CheckTime).then(function (res) {
+    LoadAdvertList('PRODUCT', 'HOME_HOT', 1, 26, CheckTime).then(function (res) {
       state.home.HotSaleProduct = res.data.Data
       state.home.Flage += 1
     })
@@ -35,7 +35,7 @@ export default {
       state.home.AdversitingThree = res.data.Data
       state.home.Flage += 1
     })
-    LoadAdvertList('PRODUCT', 'HOME_NEW_PRODUCT', 1, 6, CheckTime).then(function (res) {
+    LoadAdvertList('PRODUCT', 'HOME_NEW_PRODUCT', 1, 9, CheckTime).then(function (res) {
       state.home.NewProduct = res.data.Data
       state.home.Flage += 1
     })
@@ -54,8 +54,9 @@ export default {
       state.MS.Banner = res.data.Data
       state.MS.Flage += 1
     })
-    LoadAdvertList('IMAGE', 'MS_CATEGORY', 1, 9, CheckTime).then(function (res) {
-      state.MS.CatetoryList = res.data.Data
+    LoadAdvertList('IMAGE', 'MS_CATEGORY', 1, 100, CheckTime).then(function (res) {
+      state.MS_CATEGORY = res.data.Data
+      state.MS.CatetoryList = res.data.Data.slice(0, 9)
       state.MS.Flage += 1
     })
     LoadAdvertList('PRODUCT', 'MS_HOTPRODUCT', 1, 9, CheckTime).then(function (res) {
@@ -66,7 +67,7 @@ export default {
       state.MS.CatetoryArea = res.data.Data
       state.MS.Flage += 1
     })
-    LoadAdvertList('PRODUCT', 'MS_NEW_PRODUCT', 1, 6, CheckTime).then(function (res) {
+    LoadAdvertList('PRODUCT', 'MS_NEW_PRODUCT', 1, 9, CheckTime).then(function (res) {
       state.MS.NewProduct = res.data.Data
       state.MS.Flage += 1
     })
@@ -81,8 +82,9 @@ export default {
       state.MZGH.Banner = res.data.Data
       state.MZGH.Flage += 1
     })
-    LoadAdvertList('IMAGE', 'MZGH_CATEGORY', 1, 9, CheckTime).then(function (res) {
-      state.MZGH.CatetoryList = res.data.Data
+    LoadAdvertList('IMAGE', 'MZGH_CATEGORY', 1, 100, CheckTime).then(function (res) {
+      state.MZGH_CATEGORY = res.data.Data
+      state.MZGH.CatetoryList = res.data.Data.slice(0, 9)
       state.MZGH.Flage += 1
     })
     LoadAdvertList('PRODUCT', 'MZGH_HOTPRODUCT', 1, 9, CheckTime).then(function (res) {
@@ -93,7 +95,7 @@ export default {
       state.MZGH.CatetoryArea = res.data.Data
       state.MZGH.Flage += 1
     })
-    LoadAdvertList('PRODUCT', 'MZGH_NEW_PRODUCT', 1, 6, CheckTime).then(function (res) {
+    LoadAdvertList('PRODUCT', 'MZGH_NEW_PRODUCT', 1, 9, CheckTime).then(function (res) {
       state.MZGH.NewProduct = res.data.Data
       state.MZGH.Flage += 1
     })
@@ -108,8 +110,9 @@ export default {
       state.MYYP.Banner = res.data.Data
       state.MYYP.Flage += 1
     })
-    LoadAdvertList('IMAGE', 'MYYP_CATEGORY', 1, 9, CheckTime).then(function (res) {
-      state.MYYP.CatetoryList = res.data.Data
+    LoadAdvertList('IMAGE', 'MYYP_CATEGORY', 1, 100, CheckTime).then(function (res) {
+      state.MYYP_CATEGORY = res.data.Data
+      state.MYYP.CatetoryList = res.data.Data.slice(0, 9)
       state.MYYP.Flage += 1
     })
     LoadAdvertList('PRODUCT', 'MYYP_HOTPRODUCT', 1, 9, CheckTime).then(function (res) {
@@ -120,7 +123,7 @@ export default {
       state.MYYP.CatetoryArea = res.data.Data
       state.MYYP.Flage += 1
     })
-    LoadAdvertList('PRODUCT', 'MYYP_NEW_PRODUCT', 1, 6, CheckTime).then(function (res) {
+    LoadAdvertList('PRODUCT', 'MYYP_NEW_PRODUCT', 1, 9, CheckTime).then(function (res) {
       state.MYYP.NewProduct = res.data.Data
       state.MYYP.Flage += 1
     })
@@ -135,8 +138,9 @@ export default {
       state.JJJZ.Banner = res.data.Data
       state.JJJZ.Flage += 1
     })
-    LoadAdvertList('IMAGE', 'JJJZ_CATEGORY', 1, 9, CheckTime).then(function (res) {
-      state.JJJZ.CatetoryList = res.data.Data
+    LoadAdvertList('IMAGE', 'JJJZ_CATEGORY', 1, 100, CheckTime).then(function (res) {
+      state.JJJZ_CATEGORY = res.data.Data
+      state.JJJZ.CatetoryList = res.data.Data.slice(0, 9)
       state.JJJZ.Flage += 1
     })
     LoadAdvertList('PRODUCT', 'JJJZ_HOTPRODUCT', 1, 9, CheckTime).then(function (res) {
@@ -147,7 +151,7 @@ export default {
       state.JJJZ.CatetoryArea = res.data.Data
       state.JJJZ.Flage += 1
     })
-    LoadAdvertList('PRODUCT', 'JJJZ_NEW_PRODUCT', 1, 6, CheckTime).then(function (res) {
+    LoadAdvertList('PRODUCT', 'JJJZ_NEW_PRODUCT', 1, 9, CheckTime).then(function (res) {
       state.JJJZ.NewProduct = res.data.Data
       state.JJJZ.Flage += 1
     })
@@ -162,8 +166,9 @@ export default {
       state.QCBK.Banner = res.data.Data
       state.QCBK.Flage += 1
     })
-    LoadAdvertList('IMAGE', 'QCBK_CATEGORY', 1, 9, CheckTime).then(function (res) {
-      state.QCBK.CatetoryList = res.data.Data
+    LoadAdvertList('IMAGE', 'QCBK_CATEGORY', 1, 100, CheckTime).then(function (res) {
+      state.QCBK_CATEGORY = res.data.Data
+      state.QCBK.CatetoryList = res.data.Data.slice(0, 9)
       state.QCBK.Flage += 1
     })
     LoadAdvertList('PRODUCT', 'QCBK_HOTPRODUCT', 1, 9, CheckTime).then(function (res) {
@@ -174,7 +179,7 @@ export default {
       state.QCBK.CatetoryArea = res.data.Data
       state.QCBK.Flage += 1
     })
-    LoadAdvertList('PRODUCT', 'QCBK_NEW_PRODUCT', 1, 6, CheckTime).then(function (res) {
+    LoadAdvertList('PRODUCT', 'QCBK_NEW_PRODUCT', 1, 9, CheckTime).then(function (res) {
       state.QCBK.NewProduct = res.data.Data
       state.QCBK.Flage += 1
     })
@@ -190,7 +195,8 @@ export default {
       state.JYDQ.Flage += 1
     })
     LoadAdvertList('IMAGE', 'JYDQ_CATEGORY', 1, 9, CheckTime).then(function (res) {
-      state.JYDQ.CatetoryList = res.data.Data
+      state.JYDQ_CATEGORY = res.data.Data
+      state.JYDQ.CatetoryList = res.data.Data.slice(0, 9)
       state.JYDQ.Flage += 1
     })
     LoadAdvertList('PRODUCT', 'JYDQ_HOTPRODUCT', 1, 9, CheckTime).then(function (res) {
@@ -201,7 +207,7 @@ export default {
       state.JYDQ.CatetoryArea = res.data.Data
       state.JYDQ.Flage += 1
     })
-    LoadAdvertList('PRODUCT', 'JYDQ_NEW_PRODUCT', 1, 6, CheckTime).then(function (res) {
+    LoadAdvertList('PRODUCT', 'JYDQ_NEW_PRODUCT', 1, 9, CheckTime).then(function (res) {
       state.JYDQ.NewProduct = res.data.Data
       state.JYDQ.Flage += 1
     })
@@ -217,7 +223,8 @@ export default {
       state.WHJY.Flage += 1
     })
     LoadAdvertList('IMAGE', 'WHJY_CATEGORY', 1, 9, CheckTime).then(function (res) {
-      state.WHJY.CatetoryList = res.data.Data
+      state.WHJY_CATEGORY = res.data.Data
+      state.WHJY.CatetoryList = res.data.Data.slice(0, 9)
       state.WHJY.Flage += 1
     })
     LoadAdvertList('PRODUCT', 'WHJY_HOTPRODUCT', 1, 9, CheckTime).then(function (res) {
@@ -228,7 +235,7 @@ export default {
       state.WHJY.CatetoryArea = res.data.Data
       state.WHJY.Flage += 1
     })
-    LoadAdvertList('PRODUCT', 'WHJY_NEW_PRODUCT', 1, 6, CheckTime).then(function (res) {
+    LoadAdvertList('PRODUCT', 'WHJY_NEW_PRODUCT', 1, 9, CheckTime).then(function (res) {
       state.WHJY.NewProduct = res.data.Data
       state.WHJY.Flage += 1
     })
@@ -253,5 +260,26 @@ export default {
         }
       })
     }
+  },
+  getCatetoryById: async function (state, obj) {
+    var CheckTime = ''
+    console.log(obj)
+    let GetCateName = function () {
+      LoadAdvertList('IMAGE', obj.CateName, 1, 100, CheckTime).then(function (res) {
+        state[obj.CateName] = res.data.Data
+      })
+    }
+    if (!state[obj.CateName].length) {
+      await GetCateName()
+    }
+    LoadProductByCate(obj.id, 1, 10).then(function (resData) {
+      state[obj.CateName].map(function (res, index) {
+        state[obj.CateName.split('_')[0]].CatetoryProductArr.push([])
+        if (Number(res.Url) === Number(obj.id)) {
+          state[obj.CateName.split('_')[0]].CatetoryProductArr[index] = resData.data.Data
+          console.log(state[obj.CateName.split('_')[0]].CatetoryProductArr, 123)
+        }
+      })
+    })
   }
 }

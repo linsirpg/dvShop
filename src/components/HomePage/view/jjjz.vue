@@ -1,7 +1,7 @@
 <template>
   <div>
     <Banner :Data = 'BANNER'/>
-    <Catetory-list :Data = 'Catetory'/>
+    <Catetory-list :Data = 'Catetory' :CatetoryName = 'CatetoryName'/>
     <Catatory-hotsale :Data = 'HotSaleList'/>
     <Category-area :Data = 'CatetoryArea' />
     <New-product :Data = 'NewProduct'/>
@@ -19,13 +19,9 @@ import Recommend from '@/components/HomePage/components/Recommend.vue'
 export default {
   data () {
     return {
+      CatetoryName: 'JJJZ_CATEGORY'
     }
   },
-  // created () {
-  //   if(this.$route.meta.name == 'JJJZ'){
-  //     this.$store.dispatch('getJJJZ', {})
-  //   }
-  // },
   computed: {
     BANNER () {
       if (this.$store.state.JJJZ.Banner.length) {

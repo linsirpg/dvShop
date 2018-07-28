@@ -9,3 +9,10 @@ export let LoadAdvertList = async (kind, Advert, PageIndex, PageSize, CheckTime)
     CheckTime: CheckTime
   })
 }
+export let LoadProductByCate = async (id, PageIndex, PageSize) => {
+  return axios.post('/api/Product/LoadProductByCate', {
+    TypeId: id,
+    PageIndex: PageIndex,
+    PageSize: PageSize
+  })
+}

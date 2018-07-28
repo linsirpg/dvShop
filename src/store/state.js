@@ -11,6 +11,7 @@ export default{
     Aritcal: [],
     RecommendProduct: [],
     Flage: 0
+
   },
   MS: {
     Banner: [],
@@ -19,7 +20,8 @@ export default{
     CatetoryArea: [],
     NewProduct: [],
     RecommendProduct: [],
-    Flage: 0
+    Flage: 0,
+    CatetoryProductArr: []
   },
   MZGH: {
     Banner: [],
@@ -28,7 +30,8 @@ export default{
     CatetoryArea: [],
     NewProduct: [],
     RecommendProduct: [],
-    Flage: 0
+    Flage: 0,
+    CatetoryProductArr: []
   },
   MYYP: {
     Banner: [],
@@ -37,7 +40,8 @@ export default{
     CatetoryArea: [],
     NewProduct: [],
     RecommendProduct: [],
-    Flage: 0
+    Flage: 0,
+    CatetoryProductArr: []
   },
   JJJZ: {
     Banner: [],
@@ -46,7 +50,8 @@ export default{
     CatetoryArea: [],
     NewProduct: [],
     RecommendProduct: [],
-    Flage: 0
+    Flage: 0,
+    CatetoryProductArr: []
   },
   QCBK: {
     Banner: [],
@@ -55,7 +60,8 @@ export default{
     CatetoryArea: [],
     NewProduct: [],
     RecommendProduct: [],
-    Flage: 0
+    Flage: 0,
+    CatetoryProductArr: []
   },
   JYDQ: {
     Banner: [],
@@ -64,7 +70,8 @@ export default{
     CatetoryArea: [],
     NewProduct: [],
     RecommendProduct: [],
-    Flage: 0
+    Flage: 0,
+    CatetoryProductArr: []
   },
   WHJY: {
     Banner: [],
@@ -73,6 +80,14 @@ export default{
     CatetoryArea: [],
     NewProduct: [],
     RecommendProduct: [],
-    Flage: 0
-  }
+    Flage: 0,
+    CatetoryProductArr: []
+  },
+  MS_CATEGORY: [],
+  MYYP_CATEGORY: [],
+  JJJZ_CATEGORY: [],
+  QCBK_CATEGORY: [],
+  JYDQ_CATEGORY: [],
+  WHJY_CATEGORY: [],
+  MZGH_CATEGORY: []
 }

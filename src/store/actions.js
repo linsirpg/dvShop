@@ -28,5 +28,8 @@ export default {
   },
   getMoreDate: function ({commit}, obj) {
     commit('getMoreDate', obj)
+  },
+  getCatetoryById: function ({commit}, obj) {
+    commit('getCatetoryById', obj)
   }
 }

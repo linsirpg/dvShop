@@ -1,11 +1,12 @@
 <template>
   <div class='CatetoryHeader'>
     <div class='title'>
-      ddd
+      {{11}}
     </div>
-    <swiper :options='CatetoryHeaderSwiper' ref='CatetoryHeaderSwiperArr'>
-      <swiper-slide>
-        111
+    <swiper :options='CatetoryHeaderSwiper' ref='CatetoryHeaderSwiperArr' class = 'CatetoryHeader-Swiper'>
+      <swiper-slide :class="'CatetoryHeader-Swiper-Slide'" v-for='(item,index) in Data' :key='index'>
+        <router-link tag='span' exact replace :to="{path:'/Catetory/'+ $route.params.id, query: {id:item.Url}}">{{item.Title}}</router-link>
+              <!-- <router-link  exact :to="{path:'/catetory/'+data ,query: {id: bannerLlis[index]}} " replace   >{{item}}</router-link> -->
       </swiper-slide>
     </swiper>
   </div>
@@ -14,6 +15,7 @@
 <script>
 import { swiper, swiperSlide } from 'vue-awesome-swiper'
 export default {
+  props: ['Data'],
   data () {
     return {
       CatetoryHeaderSwiper: {
@@ -23,6 +25,9 @@ export default {
         observeParents: true
       }
     }
+  },
+  created () {
+    console.log(this.$route, 12)
   },
   components: {
     swiper,
@@ -40,8 +45,7 @@ export default {
     z-index: 10000;
     overflow: hidden;
     width:100%;
-}
-.title{
+    .title{
     font-size: .85333333rem;
     margin: 0;
     background: #fff;
@@ -51,5 +55,37 @@ export default {
     font-weight: 500;
     line-height: 1.792rem;
     text-align: center;
+  }
+  .CatetoryHeader-Swiper{
+    width: auto;
+    background: white;
+  .router-link-active {
+    border-bottom: 2px solid #b4282d;
+    color: #b4282d;
+    font-weight: 580;
+  }
+    active {
+      color: white;
+    }
+    .swiper-slide {
+      width: 170/@rem;
+      font-size: 30/@rem;
+      height: 60/@rem;
+      line-height: 60/@rem;
+      padding: 0 20/@rem;
+      box-sizing: border-box;
+      margin-bottom: 2px;
+      text-align: center;
+      span {
+        display: inline-block;
+        width: 100%;
+        height: 100%;
+      }
+    }
+    .CatetoryHeader-Swiper-Slide{
+      width:25%;
+      text-align: center;
+    }
+  }
 }
 </style>

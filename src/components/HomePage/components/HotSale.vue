@@ -4,7 +4,7 @@
       <div class='HotSale-Swiper'>
         <swiper>
           <swiper-slide v-for='(item, index) in DataArr' :key='index'>
-            <div v-for='(product, productIndex) in Data.slice(index*6,index*6+6)' :key='productIndex'>
+            <div v-for='(product, productIndex) in Data.slice(index*9,index*9+9)' :key='productIndex'>
               <a :href="product.Url">
                   <img :src="product.ImageUrl | AnalysisImg" alt="">
                   <div class='hotsaleName'>{{product.Title}}</div>
@@ -28,7 +28,7 @@ export default {
     DataArr () {
       var array = []
       if (this.Data) {
-        array.length = Math.ceil(this.Data.length / 6)
+        array.length = Math.ceil(this.Data.length / 9)
       }
       return array
     }

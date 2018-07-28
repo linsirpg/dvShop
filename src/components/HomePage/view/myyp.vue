@@ -1,7 +1,7 @@
 <template>
   <div>
     <Banner :Data = 'BANNER'/>
-    <Catetory-list :Data = 'Catetory'/>
+    <Catetory-list :Data = 'Catetory' :CatetoryName = 'CatetoryName'/>
     <Catatory-hotsale :Data = 'HotSaleList'/>
     <Category-area :Data = 'CatetoryArea' />
     <New-product :Data = 'NewProduct'/>
@@ -19,6 +19,7 @@ import Recommend from '@/components/HomePage/components/Recommend.vue'
 export default {
   data () {
     return {
+      CatetoryName: 'MYYP_CATEGORY'
     }
   },
   computed: {

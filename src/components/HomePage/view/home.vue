@@ -21,15 +21,6 @@ import NewProduct from '@/components/HomePage/components/NewProduct.vue'
 import ArticalComponent from '@/components/HomePage/components/ArticalComponent.vue'
 import Recommend from '@/components/HomePage/components/Recommend.vue'
 export default {
-  data () {
-    return {
-    }
-  },
-  // created () {
-  //   if(this.$route.meta.name == 'home'){
-  //     this.$store.dispatch('getHome', {app: this})
-  //   }
-  // },
   computed: {
     BANNER () {
       if (this.$store.state.home.Banner.length) {
