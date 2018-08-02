@@ -123,6 +123,9 @@ export default {
         document.getElementsByClassName('HomeSwiper')[0].style.overflow = 'hidden'
       }
     }
+  },
+  destroyed () {
+    window.removeEventListener('scroll', this.AppScroll, false)
   }
 }
 </script>

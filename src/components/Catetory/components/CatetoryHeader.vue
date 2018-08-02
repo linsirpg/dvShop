@@ -26,12 +26,112 @@ export default {
       }
     }
   },
-  created () {
-    console.log(this.$route, 12)
+  watch: {
+    $route () {
+      var This = this
+      if (this.CatetoryHeaderSwiperArr && This.Data.length && this.CatetoryHeaderSwiperArr.slides.length && this.CatetoryHeaderSwiperArr.slides.length === This.Data.length) {
+        var tSpeed = 300
+        var activeIndex = 0
+        This.Data.map(function (data, index) {
+          if (data.Url === This.$route.query.id) {
+            activeIndex = index
+          }
+        })
+        if (activeIndex > 0) {
+          this.CatetoryHeaderSwiperArr.slides.eq(activeIndex - 1).transition(tSpeed)
+        }
+        if (activeIndex < this.CatetoryHeaderSwiperArr.slides.length) {
+          this.CatetoryHeaderSwiperArr.slides.eq(activeIndex + 1).transition(tSpeed)
+        }
+        var navWidth = 0
+        for (var i = 0; i < this.CatetoryHeaderSwiperArr.slides.length; i++) {
+          navWidth += parseInt(this.CatetoryHeaderSwiperArr.slides.eq(i).outerWidth(true))
+        }
+        var navActiveSlideLeft = this.CatetoryHeaderSwiperArr.slides[activeIndex]
+          .offsetLeft
+        var navSlideWidth = this.CatetoryHeaderSwiperArr.slides
+          .eq(activeIndex)
+          .outerWidth(true)
+        this.CatetoryHeaderSwiperArr.setTransition(tSpeed)
+        var clientWidth = parseInt(
+          this.CatetoryHeaderSwiperArr.$wrapperEl.outerWidth(true)
+        )
+        if (navActiveSlideLeft < (clientWidth - parseInt(navSlideWidth)) / 2) {
+          this.CatetoryHeaderSwiperArr.setTranslate(0)
+        } else if (
+          navActiveSlideLeft >
+          navWidth - (parseInt(navSlideWidth) + clientWidth) / 2
+        ) {
+          this.CatetoryHeaderSwiperArr.setTranslate(clientWidth - navWidth)
+        } else {
+          this.CatetoryHeaderSwiperArr.setTranslate(
+            (clientWidth - parseInt(navSlideWidth)) / 2 - navActiveSlideLeft
+          )
+        }
+      }
+    }
+  },
+  computed: {
+    CatetoryHeaderSwiperArr () {
+      return this.$refs.CatetoryHeaderSwiperArr.swiper
+    }
   },
   components: {
     swiper,
     swiperSlide
+  },
+  created () {
+    var This = this
+    var HomeSwiperTimer = setInterval(function () {
+      if (This.CatetoryHeaderSwiperArr && This.Data.length) {
+        var tSpeed = 0
+        var activeIndex = 0
+        This.Data.map(function (data, index) {
+          if (data.Url === This.$route.query.id) {
+            activeIndex = index
+          }
+        })
+        if (This.CatetoryHeaderSwiperArr.slides[activeIndex]) {
+          if (activeIndex > 0) {
+            This.CatetoryHeaderSwiperArr.slides.eq(activeIndex - 1).transition(tSpeed)
+          }
+          if (activeIndex < This.CatetoryHeaderSwiperArr.slides.length) {
+            This.CatetoryHeaderSwiperArr.slides.eq(activeIndex + 1).transition(tSpeed)
+          }
+          var navWidth = 0
+          for (var i = 0; i < This.CatetoryHeaderSwiperArr.slides.length; i++) {
+            navWidth += parseInt(
+              This.CatetoryHeaderSwiperArr.slides.eq(i).outerWidth(true)
+            )
+          }
+          var navActiveSlideLeft =
+            This.CatetoryHeaderSwiperArr.slides[activeIndex].offsetLeft
+          var navSlideWidth = This.CatetoryHeaderSwiperArr.slides
+            .eq(activeIndex)
+            .outerWidth(true)
+          This.CatetoryHeaderSwiperArr.setTransition(tSpeed)
+          var clientWidth = parseInt(
+            This.CatetoryHeaderSwiperArr.$wrapperEl.outerWidth(true)
+          )
+          if (
+            navActiveSlideLeft <
+            (clientWidth - parseInt(navSlideWidth)) / 2
+          ) {
+            This.CatetoryHeaderSwiperArr.setTranslate(0)
+          } else if (
+            navActiveSlideLeft >
+            navWidth - (parseInt(navSlideWidth) + clientWidth) / 2
+          ) {
+            This.CatetoryHeaderSwiperArr.setTranslate(clientWidth - navWidth)
+          } else {
+            This.CatetoryHeaderSwiperArr.setTranslate(
+              (clientWidth - parseInt(navSlideWidth)) / 2 - navActiveSlideLeft
+            )
+          }
+        }
+        clearInterval(HomeSwiperTimer)
+      }
+    }, 30)
   }
 }
 </script>

@@ -1,7 +1,7 @@
 <template>
   <div class='Catetory'>
     <Catetory-header :Data = 'CateHeaderData'/>
-    <Catetory-swiper :Data = 'CateHeaderData'/>
+    <Catetory-swiper :Data = 'CateHeaderData' :ProductData = 'CatetoryProductArr' />
   </div>
 </template>
 <script>
@@ -18,6 +18,9 @@ export default {
     this.$store.dispatch('getCatetoryById', {id: this.$route.query.id, CateName: this.$route.params.id, Name: this.$route.name})
   },
   computed: {
+    CatetoryProductArr () {
+      return this.$store.state[this.$route.params.id.split('_')[0]].CatetoryProductArr
+    },
     CateHeaderData () {
       return this.$store.state[this.$route.params.id]
     }

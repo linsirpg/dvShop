@@ -1,16 +1,15 @@
 <template>
+  <div>
   <div class='recommend' v-if='Data && Data.length > 0'>
-    <div class='title'>
-          为你推荐
-    </div>
     <div class='content'>
       <a v-for='(item,index) in Data' :key='index' :href="item.Url" @click='Statistics(item.ProductNo)'>
-        <img :src="item.ImageUrl | AnalysisImg" alt="">
-        <div class='recommendtitle'>{{item.Title}}</div>
-        <div class='recommendmeno'>{{item.Describe}}</div>
-        <div class='recommendprice'>￥{{item.Param1}}</div>
+        <img :src="item.ProductImage | AnalysisImg" alt="">
+        <div class='recommendtitle'>{{item.ProductName}}</div>
+        <div class='recommendmeno'>{{item.ShortDesc}}</div>
+        <div class='recommendprice'>￥{{item.SalePrice}}</div>
       </a>
     </div>
+  </div>
   </div>
 </template>
 <script>

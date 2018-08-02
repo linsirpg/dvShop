@@ -263,23 +263,40 @@ export default {
   },
   getCatetoryById: async function (state, obj) {
     var CheckTime = ''
-    console.log(obj)
     let GetCateName = function () {
-      LoadAdvertList('IMAGE', obj.CateName, 1, 100, CheckTime).then(function (res) {
-        state[obj.CateName] = res.data.Data
-      })
+      return LoadAdvertList('IMAGE', obj.CateName, 1, 100, CheckTime)
     }
     if (!state[obj.CateName].length) {
-      await GetCateName()
+      var CatetoryArr = await GetCateName()
+      state[obj.CateName] = CatetoryArr.data.Data
     }
-    LoadProductByCate(obj.id, 1, 10).then(function (resData) {
-      state[obj.CateName].map(function (res, index) {
-        state[obj.CateName.split('_')[0]].CatetoryProductArr.push([])
-        if (Number(res.Url) === Number(obj.id)) {
-          state[obj.CateName.split('_')[0]].CatetoryProductArr[index] = resData.data.Data
-          console.log(state[obj.CateName.split('_')[0]].CatetoryProductArr, 123)
+    state[obj.CateName].map(function (res, index) {
+      state[obj.CateName.split('_')[0]].CatetoryProductArr.push([])
+    })
+    state[obj.CateName].map(function (res, index) {
+      if (Number(res.Url) === Number(obj.id)) {
+        if (state[obj.CateName.split('_')[0]].CatetoryProductArr[index].length === 0) {
+          LoadProductByCate(obj.id, 1, 10).then(function (resData) {
+            resData.data.Data.map(function (productData) {
+              state[obj.CateName.split('_')[0]].CatetoryProductArr[index].push(productData)
+            })
+          })
         }
-      })
+        if (index - 1 >= 0 && state[obj.CateName.split('_')[0]].CatetoryProductArr[index - 1].length === 0) {
+          LoadProductByCate(state[obj.CateName][index - 1].Url, 1, 10).then(function (resData) {
+            resData.data.Data.map(function (productData) {
+              state[obj.CateName.split('_')[0]].CatetoryProductArr[index - 1].push(productData)
+            })
+          })
+        }
+        if (index + 1 < state[obj.CateName].length && state[obj.CateName.split('_')[0]].CatetoryProductArr[index + 1].length === 0) {
+          LoadProductByCate(state[obj.CateName][index + 1].Url, 1, 10).then(function (resData) {
+            resData.data.Data.map(function (productData) {
+              state[obj.CateName.split('_')[0]].CatetoryProductArr[index + 1].push(productData)
+            })
+          })
+        }
+      }
     })
   }
 }
