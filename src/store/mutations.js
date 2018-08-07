@@ -298,5 +298,40 @@ export default {
         }
       }
     })
+  },
+  getMoreCateData: function (state, obj) {
+    var CheckTime = ''
+    // if (!state[obj.KindName + 'Flage']) {
+    //   state[obj.KindName + 'Flage'] = true
+    //   var offset = Math.floor(Number((state[obj.RouteName].RecommendProduct.length / obj.limit) + 1))
+    //   LoadAdvertList('PRODUCT', obj.KindName, offset, obj.limit, CheckTime).then(function (res) {
+    //     if (res.data.Data.length) {
+    //       res.data.Data.map(function (data) {
+    //         state[obj.RouteName].RecommendProduct.push(data)
+    //       })
+    //     }
+    //     if (res.data.Data.length === obj.limit) {
+    //       state[obj.KindName + 'Flage'] = false
+    //     }
+    //   })
+    // }
+    console.log(obj)
+    if (state[obj.Name + obj.id + 'Flage']){
+    } else {
+      state[obj.Name + obj.id + 'Flage'] = true
+      state[obj.CateName].map(function (res, index) {
+        if (Number(res.Url) === Number(obj.id)) {
+          var offset = Math.floor(Number((state[obj.CateName.split('_')[0]].CatetoryProductArr[index].length / obj.limit) + 1))
+          LoadProductByCate(obj.id, offset, obj.limit).then(function (resData) {
+            resData.data.Data.map(function (productData) {
+              state[obj.CateName.split('_')[0]].CatetoryProductArr[index].push(productData)
+            })
+            if (resData.data.Data.length === obj.limit) {
+              state[obj.KindName + 'Flage'] = false
+            }            
+          })
+        }
+      })
+    }
   }
 }

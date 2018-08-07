@@ -52,6 +52,15 @@ export default {
   },
   mounted () {
     this.CatetorySwiperArr.app = this
+    window.addEventListener('scroll', this.CatetoryScroll, false)
+  },
+  methods: {
+    CatetoryScroll () {
+      var This = this
+      if (document.documentElement.scrollHeight - document.documentElement.scrollTop - document.documentElement.clientHeight < 300 || document.body.scrollHeight - document.body.scrollTop - document.documentElement.clientHeight < 300) {
+        this.$store.dispatch('getMoreCateData', {id: this.$route.query.id, CateName: this.$route.params.id, Name: this.$route.name, limit: this.$route.meta.limit})
+      }
+    }
   },
   created () {
     var This = this

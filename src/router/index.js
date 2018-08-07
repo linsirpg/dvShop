@@ -179,7 +179,8 @@ const router = new Router({
       name: 'Catetory',
       component: catetory,
       meta: {
-        Class: 'B'
+        Class: 'B',
+        limit: 10,
       }
     },
     {
