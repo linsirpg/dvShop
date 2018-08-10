@@ -180,7 +180,7 @@ const router = new Router({
       component: catetory,
       meta: {
         Class: 'B',
-        limit: 10,
+        limit: 10
       }
     },
     {
@@ -191,7 +191,12 @@ const router = new Router({
 })
 router.beforeEach((to, from, next) => {
   if (router.app.$store) {
-    router.app.$store.state[from.name + 'ScrollTop'] = document.documentElement.scrollTop || document.body.scrollTop
+    if (from.meta.Class === 'A') {
+      router.app.$store.state[from.name + 'ScrollTop'] = document.documentElement.scrollTop || document.body.scrollTop
+    }
+    if (from.meta.Class === 'B') {
+      router.app.$store.state[from.name + 'ScrollTop' + from.query.id] = document.documentElement.scrollTop || document.body.scrollTop
+    }
   }
   next()
 })

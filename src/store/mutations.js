@@ -272,6 +272,9 @@ export default {
     }
     state[obj.CateName].map(function (res, index) {
       state[obj.CateName.split('_')[0]].CatetoryProductArr.push([])
+      if (!state[obj.Name + 'ScrollTop' + res.Url]) {
+        state[obj.Name + 'ScrollTop' + res.Url] = 0
+      }
     })
     state[obj.CateName].map(function (res, index) {
       if (Number(res.Url) === Number(obj.id)) {
@@ -300,23 +303,7 @@ export default {
     })
   },
   getMoreCateData: function (state, obj) {
-    var CheckTime = ''
-    // if (!state[obj.KindName + 'Flage']) {
-    //   state[obj.KindName + 'Flage'] = true
-    //   var offset = Math.floor(Number((state[obj.RouteName].RecommendProduct.length / obj.limit) + 1))
-    //   LoadAdvertList('PRODUCT', obj.KindName, offset, obj.limit, CheckTime).then(function (res) {
-    //     if (res.data.Data.length) {
-    //       res.data.Data.map(function (data) {
-    //         state[obj.RouteName].RecommendProduct.push(data)
-    //       })
-    //     }
-    //     if (res.data.Data.length === obj.limit) {
-    //       state[obj.KindName + 'Flage'] = false
-    //     }
-    //   })
-    // }
-    console.log(obj)
-    if (state[obj.Name + obj.id + 'Flage']){
+    if (state[obj.Name + obj.id + 'Flage']) {
     } else {
       state[obj.Name + obj.id + 'Flage'] = true
       state[obj.CateName].map(function (res, index) {
@@ -327,8 +314,8 @@ export default {
               state[obj.CateName.split('_')[0]].CatetoryProductArr[index].push(productData)
             })
             if (resData.data.Data.length === obj.limit) {
-              state[obj.KindName + 'Flage'] = false
-            }            
+              state[obj.Name + obj.id + 'Flage'] = false
+            }
           })
         }
       })
