@@ -7,7 +7,6 @@
 <script>
 import CatetoryHeader from './components/CatetoryHeader.vue'
 import CatetorySwiper from './components/CatetorySwiper.vue'
-// import CatetorySwiper from './components/CatetorySwiper.vue'
 
 export default {
   components: {

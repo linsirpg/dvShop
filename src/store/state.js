@@ -89,5 +89,7 @@ export default{
   QCBK_CATEGORY: [],
   JYDQ_CATEGORY: [],
   WHJY_CATEGORY: [],
-  MZGH_CATEGORY: []
+  MZGH_CATEGORY: [],
+  KindData: [],
+  KindeDataProduct: []
 }

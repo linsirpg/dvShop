@@ -9,6 +9,7 @@ import mzgh from '@/components/HomePage/view/mzgh.vue'
 import qcbk from '@/components/HomePage/view/qcbk.vue'
 import whjy from '@/components/HomePage/view/whjy.vue'
 import catetory from '@/components/Catetory/Catetory.vue'
+import kind from '@/components/Kind/Kind.vue'
 
 Vue.use(Router)
 
@@ -184,6 +185,15 @@ const router = new Router({
       }
     },
     {
+      path: '/Catetory/:Id?/kind/:id?',
+      name: 'kind',
+      component: kind,
+      meta: {
+        Class: 'C',
+        limit: 10
+      }
+    },
+    {
       path: '*',
       redirect: '/home'
     }
@@ -195,6 +205,9 @@ router.beforeEach((to, from, next) => {
       router.app.$store.state[from.name + 'ScrollTop'] = document.documentElement.scrollTop || document.body.scrollTop
     }
     if (from.meta.Class === 'B') {
+      router.app.$store.state[from.name + 'ScrollTop' + from.query.id] = document.documentElement.scrollTop || document.body.scrollTop
+    }
+    if (from.meta.Class === 'C') {
       router.app.$store.state[from.name + 'ScrollTop' + from.query.id] = document.documentElement.scrollTop || document.body.scrollTop
     }
   }

@@ -6,7 +6,8 @@
           <swiper-slide v-for='(item, index) in DataArr' :key='index'>
             <div v-for='(product, productIndex) in Data.slice(index*9,index*9+9)' :key='productIndex'>
               <a :href="product.Url">
-                  <img :src="product.ImageUrl | AnalysisImg" alt="">
+                  <!-- <img :src="product.ImageUrl | AnalysisImg" alt=""> -->
+                  <img v-lazy="product.ImageUrl" alt="">
                   <div class='hotsaleName'>{{product.Title}}</div>
                   <div class='hotsalePrice'>已售{{product.Param3}}</div>
               </a>

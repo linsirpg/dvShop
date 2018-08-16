@@ -2,12 +2,14 @@
   <div class='AdversitingOne'>
     <div v-if="Data && Data.length == 2">
         <a :href="item.Url" v-for='(item, index) in Data' :key='index' :class="'AdversitingOne'+Data.length">
-            <img :src="item.ImageUrl | AnalysisImg" alt="">
+            <!-- <img :src="item.ImageUrl | AnalysisImg" alt=""> -->
+            <img v-lazy="item.ImageUrl" alt="">
         </a>
     </div>
     <div v-if="Data && Data.length == 1">
         <a :href="item.Url" v-for='(item, index) in Data' :key='index' :class="'AdversitingOne'+Data.length">
-            <img :src="item.ImageUrl | AnalysisImg" alt="">
+            <!-- <img :src="item.ImageUrl | AnalysisImg" alt=""> -->
+            <img v-lazy="item.ImageUrl" alt="">
         </a>
     </div>
   </div>

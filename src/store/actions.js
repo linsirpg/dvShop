@@ -34,5 +34,11 @@ export default {
   },
   getMoreCateData: function ({commit}, obj) {
     commit('getMoreCateData', obj)
+  },
+  getKindById: function ({commit}, obj) {
+    commit('getKindById', obj)
+  },
+  getMoreKindData: function ({commit}, obj) {
+    commit('getMoreKindData', obj)
   }
 }

@@ -2,7 +2,10 @@
   <div class='specialArea'>
     <div class='specialArea-tltie'>特色专区</div>
     <div class='specialArea-content'>
-      <a :href="item.Url" v-for='(item, index) in Data' :key='index'><img :src="item.ImageUrl | AnalysisImg" alt=""></a>
+      <a :href="item.Url" v-for='(item, index) in Data' :key='index'>
+        <!-- <img :src="item.ImageUrl | AnalysisImg" alt=""> -->
+        <img v-lazy="item.ImageUrl" alt="">
+      </a>
     </div>
   </div>
 </template>

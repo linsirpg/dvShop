@@ -6,7 +6,8 @@
     <div class='Catetory-hotSale-Product'>
       <a href="" v-for='(item, index) in Data' :key='index'>
         <div class='Catetory-hotSale-Product-Img'>
-          <img :src="item.ImageUrl | AnalysisImg" alt="">
+          <!-- <img :src="item.ImageUrl | AnalysisImg" alt=""> -->
+          <img v-lazy="item.ImageUrl" alt="">
         </div>
         <div class='Catetory-hotSale-Product-Detial'>
           <div class='recommendtitle'>{{item.Title}}</div>

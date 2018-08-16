@@ -5,8 +5,7 @@
     </div>
     <swiper :options='CatetoryHeaderSwiper' ref='CatetoryHeaderSwiperArr' class = 'CatetoryHeader-Swiper'>
       <swiper-slide :class="'CatetoryHeader-Swiper-Slide'" v-for='(item,index) in Data' :key='index'>
-        <router-link tag='span' exact replace :to="{path:'/Catetory/'+ $route.params.id, query: {id:item.Url}}">{{item.Title}}</router-link>
-              <!-- <router-link  exact :to="{path:'/catetory/'+data ,query: {id: bannerLlis[index]}} " replace   >{{item}}</router-link> -->
+        <router-link tag='span' exact replace :to="{path:'/Catetory/'+ $route.params.Id +'/kind/'+ $route.params.id, query:{id:item.Id}}">{{item.Title}}</router-link>
       </swiper-slide>
     </swiper>
   </div>
@@ -18,6 +17,7 @@ export default {
   props: ['Data'],
   data () {
     return {
+      // Data: [],
       CatetoryHeaderSwiper: {
         freeMode: true,
         slidesPerView: 'auto',
@@ -33,7 +33,7 @@ export default {
         var tSpeed = 300
         var activeIndex = 0
         This.Data.map(function (data, index) {
-          if (data.Url === This.$route.query.id) {
+          if (data.Id === This.$route.query.id) {
             activeIndex = index
           }
         })
@@ -87,7 +87,7 @@ export default {
         var tSpeed = 0
         var activeIndex = 0
         This.Data.map(function (data, index) {
-          if (data.Url === This.$route.query.id) {
+          if (data.Id === This.$route.query.id) {
             activeIndex = index
           }
         })
@@ -132,7 +132,6 @@ export default {
         clearInterval(HomeSwiperTimer)
       }
     }, 30)
-    console.log(this.Data, 1234)
   }
 }
 </script>

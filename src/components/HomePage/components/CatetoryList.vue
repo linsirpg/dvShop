@@ -2,7 +2,8 @@
   <div class='catetory' v-if='Data && Data.length'>
     <router-link  :to="{path:'/Catetory/' + CatetoryName, query: {id: item.Url}}"  v-for='(item, index) in Data' :key='index' :class="Data.length != 5 && Data.length != 6? 'catetory-list'+(Data.length + 1) :'catetory-list'+(Data.length)">
       <div class='catetory-list-Img'>
-        <img :src="item.ImageUrl | AnalysisImg" alt="">
+        <!-- <img :src="item.ImageUrl | AnalysisImg" alt=""> -->
+        <img v-lazy="item.ImageUrl" alt="">
       </div>
       <div>
         {{item.Title}}

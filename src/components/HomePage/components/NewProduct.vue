@@ -3,7 +3,8 @@
     <div class='NewProduct-Title'>新品首发<span>查看更多&gt;</span></div>
     <div class='NewProduct-Content'>
       <a :href="item.Url" v-for='(item, index) in Data' :key='index'>
-          <img :src="item.ImageUrl | AnalysisImg" alt="">
+          <!-- <img :src="item.ImageUrl | AnalysisImg" alt=""> -->
+          <img v-lazy="item.ImageUrl" alt="">
           <div class='Product-Title'>{{item.Title}}</div>
           <div class='Product-Describe'>{{item.Describe}}</div>
           <div class='Product-Price'>￥{{item.Param1}}</div>

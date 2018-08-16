@@ -1,7 +1,8 @@
 <template>
   <div class='CategoryArea' v-if='Data && Data.length'>
     <a href="" v-for='(item, index) in Data' :key='index'>
-      <img :src="item.ImageUrl | AnalysisImg" alt="">
+      <!-- <img :src="item.ImageUrl | AnalysisImg" alt=""> -->
+      <img v-lazy="item.ImageUrl" alt="">
     </a>
   </div>
 </template>

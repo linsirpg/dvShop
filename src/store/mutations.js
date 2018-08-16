@@ -1,4 +1,4 @@
-import {LoadAdvertList, LoadProductByCate} from '@/server'
+import {LoadAdvertList, LoadProductByCate, LoadCateGroup} from '@/server'
 export default {
   getHeadNavArr (state) {
     var CheckTime = ''
@@ -315,6 +315,77 @@ export default {
             })
             if (resData.data.Data.length === obj.limit) {
               state[obj.Name + obj.id + 'Flage'] = false
+            }
+          })
+        }
+      })
+    }
+  },
+  getKindById: async function (state, obj) {
+    var CheckTime = ''
+    let GetCateName = function () {
+      return LoadAdvertList('IMAGE', obj.CateName, 1, 100, CheckTime)
+    }
+    if (!state[obj.CateName].length) {
+      var CatetoryArr = await GetCateName()
+      state[obj.CateName] = CatetoryArr.data.Data
+    }
+    state[obj.CateName].map(function (data) {
+      if (data.Url === obj.CatetoryId) {
+        if (state.KindeDataProduct.length < JSON.parse(data.NavigationConfig).length) {
+          JSON.parse(data.NavigationConfig).map(function (res, index) {
+            state[obj.Name + 'ScrollTop' + res.Id] = 0
+            state.KindeDataProduct.push([])
+          })
+        }
+        console.log(obj)
+        console.log(state)
+        JSON.parse(data.NavigationConfig).map(function (res, index) {
+          if (res.Id === obj.id) {
+            if (state.KindeDataProduct[index].length === 0) {
+              LoadCateGroup([obj.id], 1, 10).then(function (res) {
+                res.data.Data[obj.id].map(function (item) {
+                  state.KindeDataProduct[index].push(item)
+                })
+              })
+            }
+            if (index !== 0 && index - 1 && state.KindeDataProduct[index - 1].length === 0) {
+              LoadCateGroup([JSON.parse(data.NavigationConfig)[index - 1].Id], 1, 10).then(function (res) {
+                res.data.Data[JSON.parse(data.NavigationConfig)[index - 1].Id].map(function (item) {
+                  state.KindeDataProduct[index - 1].push(item)
+                })
+              })
+            }
+            if (index !== JSON.parse(data.NavigationConfig).length - 1 && state.KindeDataProduct[index + 1].length === 0) {
+              LoadCateGroup([JSON.parse(data.NavigationConfig)[index + 1].Id], 1, 10).then(function (res) {
+                res.data.Data[JSON.parse(data.NavigationConfig)[index + 1].Id].map(function (item) {
+                  state.KindeDataProduct[index + 1].push(item)
+                })
+              })
+            }
+          }
+        })
+      }
+    })
+  },
+  getMoreKindData: function (state, obj) {
+    var offset = 1
+    if (state[obj.Name + obj.id + 'Flage']) {
+    } else {
+      state[obj.Name + obj.id + 'Flage'] = true
+      state[obj.CateName].map(function (data) {
+        if (data.Url === obj.CatetoryId) {
+          JSON.parse(data.NavigationConfig).map(function (res, index) {
+            if (res.Id === obj.id && state.KindeDataProduct[index].length >= 10) {
+              offset = Math.floor(Number((state.KindeDataProduct[index].length / obj.limit) + 1))
+              LoadCateGroup([obj.id], offset, obj.limit).then(function (result) {
+                result.data.Data[obj.id].map(function (item) {
+                  state.KindeDataProduct[index].push(item)
+                })
+                if (result.data.Data[obj.id].length === obj.limit) {
+                  state[obj.Name + obj.id + 'Flage'] = false
+                }
+              })
             }
           })
         }

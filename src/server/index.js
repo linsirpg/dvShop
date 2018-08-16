@@ -1,18 +1,25 @@
 import axios from 'axios'
 
-export let LoadAdvertList = async (kind, Advert, PageIndex, PageSize, CheckTime) => {
+export let LoadAdvertList = async (Kind, AdvertCode, PageIndex, PageSize, CheckTime) => {
   return axios.post('/api/Advert/LoadAdvertList', {
-    Kind: kind,
-    AdvertCode: Advert,
-    PageIndex: PageIndex,
-    PageSize: PageSize,
-    CheckTime: CheckTime
+    Kind,
+    AdvertCode,
+    PageIndex,
+    PageSize,
+    CheckTime
   })
 }
-export let LoadProductByCate = async (id, PageIndex, PageSize) => {
+export let LoadProductByCate = async (TypeId, PageIndex, PageSize) => {
   return axios.post('/api/Product/LoadProductByCate', {
-    TypeId: id,
-    PageIndex: PageIndex,
-    PageSize: PageSize
+    TypeId,
+    PageIndex,
+    PageSize
+  })
+}
+export let LoadCateGroup = async (TypeId, PageIndex, PageSize) => {
+  return axios.post('/api/Product/LoadCateGroup', {
+    TypeId,
+    PageIndex,
+    PageSize
   })
 }
