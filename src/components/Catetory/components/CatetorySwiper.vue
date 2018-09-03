@@ -109,7 +109,6 @@ export default {
     }
   },
   created () {
-    console.log(this.Data)
     var This = this
     var CatetorySwiperTimer = setInterval(function () {
       if (This.Data && This.CatetorySwiperArr && This.Data.length) {

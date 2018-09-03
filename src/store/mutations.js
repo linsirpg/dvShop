@@ -338,8 +338,6 @@ export default {
             state.KindeDataProduct.push([])
           })
         }
-        console.log(obj)
-        console.log(state)
         JSON.parse(data.NavigationConfig).map(function (res, index) {
           if (res.Id === obj.id) {
             if (state.KindeDataProduct[index].length === 0) {

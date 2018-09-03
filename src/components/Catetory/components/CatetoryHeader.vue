@@ -132,7 +132,6 @@ export default {
         clearInterval(HomeSwiperTimer)
       }
     }, 30)
-    console.log(this.Data, 1234)
   }
 }
 </script>
