@@ -23,3 +23,7 @@ export let LoadCateGroup = async (TypeId, PageIndex, PageSize) => {
     PageSize
   })
 }
+export let LoadAdvertPoistion = async (PositionCode) => {
+  return axios
+    .post('/api/Advert/LoadAdvertPoistion?PositionCode=' + PositionCode)
+}

@@ -1,6 +1,6 @@
 <template>
    <div class='Kind'>
-    <Kind-header :Data ='KindData'/>
+    <Kind-header :Data ='KindData' :DateTitle ='KindTitle'/>
     <kind-swiper :Data ='KindData' :ProductData='CateHeaderDataProduct'/>
   </div>
 </template>
@@ -11,7 +11,8 @@ import kindSwiper from './components/kindSwiper.vue'
 export default {
   data () {
     return {
-      KindData: []
+      KindData: [],
+      KindTitle: ''
     }
   },
   watch: {
@@ -19,6 +20,7 @@ export default {
       var This = this
       this.$store.state[this.$route.params.Id].map(function (item, index) {
         if (item.Url === This.$route.params.id) {
+          This.KindTitle = item.Title
           This.KindData = JSON.parse(item.NavigationConfig)
         }
       })
@@ -29,6 +31,7 @@ export default {
     var This = this
     this.$store.state[this.$route.params.Id].map(function (item, index) {
       if (item.Url === This.$route.params.id) {
+        This.KindTitle = item.Title
         This.KindData = JSON.parse(item.NavigationConfig)
       }
     })

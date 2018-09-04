@@ -24,7 +24,24 @@ export default {
 .NewProduct{
     overflow: hidden;
     .NewProduct-Title{
-        text-align:center;
+        display: block;
+        width: 100%;
+        height: 100/@rem;
+        line-height: 100/@rem;
+        text-align: center;
+        font-size: 40/@rem;
+        font-weight: 580;
+        position: relative;
+        background: white;
+        color: #747474;
+        margin: 15/@rem 0 10/@rem 0;
+        span {
+        position: absolute;
+        right: 10/@rem;
+        top: 0;
+        font-size: 24/@rem;
+        color: #9a9a9a;
+        }
     }
     .NewProduct-Content{
         a{

@@ -1,5 +1,5 @@
 <template>
-  <div class='Catetory-hotSale'>
+  <div class='Catetory-hotSale' v-if='Data && Data.length > 0'>
     <div class='Catetory-hotSale-Title'>
       热卖爆款
     </div>

@@ -1,7 +1,7 @@
 <template>
   <div class='CatetoryHeader'>
     <div class='title'>
-      {{11}}
+      {{DateTitle}}
     </div>
     <swiper :options='CatetoryHeaderSwiper' ref='CatetoryHeaderSwiperArr' class = 'CatetoryHeader-Swiper'>
       <swiper-slide :class="'CatetoryHeader-Swiper-Slide'" v-for='(item,index) in Data' :key='index'>
@@ -14,7 +14,7 @@
 <script>
 import { swiper, swiperSlide } from 'vue-awesome-swiper'
 export default {
-  props: ['Data'],
+  props: ['Data', 'DateTitle'],
   data () {
     return {
       // Data: [],

@@ -1,13 +1,16 @@
 <template>
   <div id="app">
     <home-page v-if= "$route.meta.Class === 'A'"/>
-    <!-- <Footer/> -->
     <router-view ></router-view>
+    <Footer/>
+    <page-util />
   </div>
 </template>
 <script>
 import HomePage from '@/components/HomePage/HomePage.vue'
 import Footer from '@/components/Footer/Footer.vue'
+import pageUtil from '@/components/publciutil/util.vue'
+
 import {RemFit} from './lib/mUtils.js'
 RemFit(document, window)
 export default {
@@ -17,7 +20,8 @@ export default {
   },
   components: {
     HomePage,
-    Footer
+    Footer,
+    pageUtil
   },
   methods: {
   },

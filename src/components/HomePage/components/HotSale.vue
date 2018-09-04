@@ -1,5 +1,5 @@
 <template>
-  <div class='HotSale'>
+  <div class='HotSale' v-if='Data && Data.length > 0'>
     <div class='hotsaletitle'>热卖爆款</div>
       <div class='HotSale-Swiper'>
         <swiper>
@@ -12,6 +12,9 @@
                   <div class='hotsalePrice'>已售{{product.Param3}}</div>
               </a>
             </div>
+            <a v-if='index == 2'>
+              <img src="../../../assets/images/more.jpg" alt="" style='width:100%;'>
+            </a>
           </swiper-slide>
         </swiper>
     </div>
@@ -45,6 +48,9 @@ export default {
         height: 100/@rem;
         line-height: 100/@rem;
         text-align: center;
+        background:white;
+        margin: 15/@rem 0 10/@rem;
+        color:#565656;
     }
     a{
         text-decoration: none;

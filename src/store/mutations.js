@@ -1,4 +1,4 @@
-import {LoadAdvertList, LoadProductByCate, LoadCateGroup} from '@/server'
+import {LoadAdvertList, LoadProductByCate, LoadCateGroup, LoadAdvertPoistion} from '@/server'
 export default {
   getHeadNavArr (state) {
     var CheckTime = ''
@@ -47,6 +47,11 @@ export default {
       state.home.RecommendProduct = res.data.Data
       state.home.Flage += 1
     })
+    LoadAdvertList('IMAGE', 'HOME_BUOY', 1, 100, CheckTime).then(function (res) {
+      if (res.data.Data.length) {
+        state.home.BUOY = res.data.Data[0]
+      }
+    })
   },
   getMS: function (state, obj) {
     var CheckTime = ''
@@ -74,6 +79,9 @@ export default {
     LoadAdvertList('PRODUCT', 'MS_HOTRECOMMEND_VERTICAL', 1, 10, CheckTime).then(function (res) {
       state.MS.RecommendProduct = res.data.Data
       state.MS.Flage += 1
+    })
+    LoadAdvertPoistion('MS_CATEGORY').then(function (res) {
+      state.MS.TieleName = res.data.Data.TITLE
     })
   },
   getMZGH: function (state, obj) {
@@ -103,6 +111,9 @@ export default {
       state.MZGH.RecommendProduct = res.data.Data
       state.MZGH.Flage += 1
     })
+    LoadAdvertPoistion('MZGH_CATEGORY').then(function (res) {
+      state.MZGH.TieleName = res.data.Data.TITLE
+    })
   },
   getMYYP: function (state, obj) {
     var CheckTime = ''
@@ -130,6 +141,9 @@ export default {
     LoadAdvertList('PRODUCT', 'MYYP_HOTRECOMMEND_VERTICAL', 1, 10, CheckTime).then(function (res) {
       state.MYYP.RecommendProduct = res.data.Data
       state.MYYP.Flage += 1
+    })
+    LoadAdvertPoistion('MYYP_CATEGORY').then(function (res) {
+      state.MYYP.TieleName = res.data.Data.TITLE
     })
   },
   getJJJZ: function (state, obj) {
@@ -159,6 +173,9 @@ export default {
       state.JJJZ.RecommendProduct = res.data.Data
       state.JJJZ.Flage += 1
     })
+    LoadAdvertPoistion('JJJZ_CATEGORY').then(function (res) {
+      state.JJJZ.TieleName = res.data.Data.TITLE
+    })
   },
   getQCBK: function (state, obj) {
     var CheckTime = ''
@@ -186,6 +203,9 @@ export default {
     LoadAdvertList('PRODUCT', 'QCBK_HOTRECOMMEND_VERTICAL', 1, 10, CheckTime).then(function (res) {
       state.QCBK.RecommendProduct = res.data.Data
       state.QCBK.Flage += 1
+    })
+    LoadAdvertPoistion('QCBK_CATEGORY').then(function (res) {
+      state.QCBK.TieleName = res.data.Data.TITLE
     })
   },
   getJYDQ: function (state, obj) {
@@ -215,6 +235,9 @@ export default {
       state.JYDQ.RecommendProduct = res.data.Data
       state.JYDQ.Flage += 1
     })
+    LoadAdvertPoistion('JYDQ_CATEGORY').then(function (res) {
+      state.JYDQ.TieleName = res.data.Data.TITLE
+    })
   },
   getWHJY: function (state, obj) {
     var CheckTime = ''
@@ -242,6 +265,15 @@ export default {
     LoadAdvertList('PRODUCT', 'WHJY_HOTRECOMMEND_VERTICAL', 1, 10, CheckTime).then(function (res) {
       state.WHJY.RecommendProduct = res.data.Data
       state.WHJY.Flage += 1
+    })
+    LoadAdvertPoistion('WHJY_CATEGORY').then(function (res) {
+      state.WHJY.TieleName = res.data.Data.TITLE
+    })
+  },
+  // 获取分类标题
+  getAdvertPoistion: function (state, obj) {
+    LoadAdvertPoistion(obj.PositionCode).then(function (res) {
+      state[obj.PositionCode.split('_')[0]].TieleName = res.data.Data.TITLE
     })
   },
   getMoreDate: function (state, obj) {
@@ -347,7 +379,7 @@ export default {
                 })
               })
             }
-            if (index !== 0 && index - 1 && state.KindeDataProduct[index - 1].length === 0) {
+            if (index !== 0 && state.KindeDataProduct[index - 1].length === 0) {
               LoadCateGroup([JSON.parse(data.NavigationConfig)[index - 1].Id], 1, 10).then(function (res) {
                 res.data.Data[JSON.parse(data.NavigationConfig)[index - 1].Id].map(function (item) {
                   state.KindeDataProduct[index - 1].push(item)

@@ -19,7 +19,7 @@ export default {
   props: ['Data']
 }
 </script>
-<style lang='less'>
+<style lang='less' scope>
 @rem: 46.875rem;
 .recommend {
   margin-bottom:47px;

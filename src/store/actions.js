@@ -32,6 +32,9 @@ export default {
   getCatetoryById: function ({commit}, obj) {
     commit('getCatetoryById', obj)
   },
+  getAdvertPoistion: function ({commit}, obj) {
+    commit('getAdvertPoistion', obj)
+  },
   getMoreCateData: function ({commit}, obj) {
     commit('getMoreCateData', obj)
   },

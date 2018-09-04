@@ -19,7 +19,7 @@ import Recommend from '@/components/HomePage/components/Recommend.vue'
 export default {
   data () {
     return {
-      CatetoryName: 'QQBK_CATEGORY'
+      CatetoryName: 'QCBK_CATEGORY'
     }
   },
   computed: {

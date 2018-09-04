@@ -135,6 +135,9 @@ export default {
 .HomeSwiper{
   box-sizing: border-box;
   padding-top: 180/@rem;
+  opacity: 0;
+  overflow: hidden;
+  margin-bottom:100/@rem;
 }
 
 </style>

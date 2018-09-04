@@ -129,6 +129,11 @@ export default {
 <style lang='less' scope>
 @rem: 46.875rem;
 .CatetoryContent{
-  margin-top:200/@rem;
+  margin-top:160/@rem;
+  overflow: hidden;
+  .content{
+    overflow: hidden;
+    margin-bottom: 100/@rem;
+  }
 }
 </style>

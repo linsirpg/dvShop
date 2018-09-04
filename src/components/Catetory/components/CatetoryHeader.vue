@@ -1,7 +1,7 @@
 <template>
   <div class='CatetoryHeader'>
     <div class='title'>
-      {{11}}
+      {{CatetoryTitle}}
     </div>
     <swiper :options='CatetoryHeaderSwiper' ref='CatetoryHeaderSwiperArr' class = 'CatetoryHeader-Swiper'>
       <swiper-slide :class="'CatetoryHeader-Swiper-Slide'" v-for='(item,index) in Data' :key='index'>
@@ -74,6 +74,9 @@ export default {
   computed: {
     CatetoryHeaderSwiperArr () {
       return this.$refs.CatetoryHeaderSwiperArr.swiper
+    },
+    CatetoryTitle () {
+      return this.$store.state[this.$route.params.id.split('_')[0]].TieleName
     }
   },
   components: {
@@ -81,6 +84,9 @@ export default {
     swiperSlide
   },
   created () {
+    if (!this.$store.state[this.$route.params.id.split('_')[0]].TieleName) {
+      this.$store.dispatch('getAdvertPoistion', {PositionCode: this.$route.params.id})
+    }
     var This = this
     var HomeSwiperTimer = setInterval(function () {
       if (This.CatetoryHeaderSwiperArr && This.Data.length) {
@@ -130,6 +136,15 @@ export default {
           }
         }
         clearInterval(HomeSwiperTimer)
+      }
+    }, 30)
+    var timer = setInterval(function () {
+      if (This.CatetoryHeaderSwiperArr && This.Data.length > 0) {
+        console.log(1212)
+        if (This.Data.length < 4) {
+          This.CatetoryHeaderSwiperArr.slides.css('width', '33%').css('padding', '0 6% 0 6%')
+        }
+        clearInterval(timer)
       }
     }, 30)
   }

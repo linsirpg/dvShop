@@ -2,14 +2,22 @@
   <div class='CatetoryKind'>
     <swiper :options='CatetoryKindSwiper'>
       <swiper-slide v-for= "(item, index) in SwiperArr" :key='index'>
-        <router-link  :to="{path:'/Catetory/'+ $route.params.id +'/kind/'+ $route.query.id, query:{id:item.Id}}" :class="Data.slice(index*9,index*9+9).length == 9 ? 'kind-list10' : 'kind-list' + Data.slice(index*9,index*9+9).length " v-for="(item, itemindex) in Data.slice(index*9,index*9+9)" :key='itemindex'>
+        <router-link  :to="{path:'/Catetory/'+ $route.params.id +'/kind/'+ $route.query.id, query:{id:item.Id}}" :class="Data.slice(index*9,index*9+9).length == 9 || Data.length == 7? 'kind-list' + (Data.slice(index*9,index*9+9).length + 1) : 'kind-list' + Data.slice(index*9,index*9+9).length " v-for="(item, itemindex) in Data.slice(index*9,index*9+9)" :key='itemindex'>
           <div  class='kind-list-Img'>
             <img :src="item.Image | AnalysisImg" alt="" >
           </div>
           <div>
             {{item.Title}}
           </div>
-        </router-link >
+        </router-link>
+        <router-link :to="{}" v-if='Data.length == 7' class='kind-list8'>
+          <div  class='kind-list-Img'>
+            <img src="../../../assets/images/more.png" alt="">
+          </div>
+          <div>
+            更多
+          </div>
+        </router-link>
         <div v-if='Data.slice(index*9,index*9+9).length == 9' class='kind-list10'>
           <div  class='kind-list-Img'>
             <img src="../../../assets/images/more.png" alt="">
