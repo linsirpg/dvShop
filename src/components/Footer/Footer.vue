@@ -43,9 +43,9 @@ export default {
 </script>
 <style lang='less'>
 .footer {
+  max-width: 600px;
   position: fixed;
   z-index: 10000;
-  max-width: 100%;
   margin:0 auto;
   padding: 0;
   height: 46px !important;
@@ -66,7 +66,6 @@ export default {
     border: 0;
     max-width: 100%;
     overflow: visible;
-
     li {
       div {
         display: block;

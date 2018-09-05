@@ -10,6 +10,7 @@ import qcbk from '@/components/HomePage/view/qcbk.vue'
 import whjy from '@/components/HomePage/view/whjy.vue'
 import catetory from '@/components/Catetory/Catetory.vue'
 import kind from '@/components/Kind/Kind.vue'
+import MoreHotProduct from '@/components/MoreAdvertProduct/MoreProduct.vue'
 
 Vue.use(Router)
 
@@ -191,6 +192,14 @@ const router = new Router({
       meta: {
         Class: 'C',
         limit: 10
+      }
+    },
+    {
+      path: '/MoreHotProduct',
+      name: 'MoreHotProduct',
+      component: MoreHotProduct,
+      meta: {
+        Class: 'M'
       }
     },
     {

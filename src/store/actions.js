@@ -43,5 +43,8 @@ export default {
   },
   getMoreKindData: function ({commit}, obj) {
     commit('getMoreKindData', obj)
+  },
+  getMoreProduct: function ({commit}, obj) {
+    commit('getMoreProduct', obj)
   }
 }

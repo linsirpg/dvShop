@@ -52,6 +52,9 @@ export default {
         state.home.BUOY = res.data.Data[0]
       }
     })
+    LoadAdvertList('IMAGE', 'SEARCH_MESS', 1, 100, CheckTime).then(function (res) {
+      state.home.SEARCH_MESS = res.data.Data[0].Title
+    })
   },
   getMS: function (state, obj) {
     var CheckTime = ''
@@ -421,5 +424,12 @@ export default {
         }
       })
     }
+  },
+  getMoreProduct: function (state, obj) {
+    console.log(obj)
+    // LoadAdvertList('PRODUCT', obj.PositionCode, 1, 10, CheckTime).then(function (res) {
+    //   state.WHJY.RecommendProduct = res.data.Data
+    //   state.WHJY.Flage += 1
+    // })
   }
 }

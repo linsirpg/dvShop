@@ -29,3 +29,9 @@ export default {
   }
 }
 </script>
+<style>
+body,html{
+  max-width: 600px;
+  margin: 0 auto;
+}
+</style>

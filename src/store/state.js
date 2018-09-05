@@ -11,8 +11,8 @@ export default{
     Aritcal: [],
     RecommendProduct: [],
     Flage: 0,
-    BUOY: null
-
+    BUOY: null,
+    SEARCH_MESS: ''
   },
   MS: {
     Banner: [],

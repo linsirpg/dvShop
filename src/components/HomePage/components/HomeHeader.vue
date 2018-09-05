@@ -8,6 +8,9 @@
           <!-- <swiper-slide :class='"HomeHeader-Swiper"+index' v-for='(data, index) in HomePageSwiperArr' :key='index' >{{data.Title}}</swiper-slide> -->
           <swiper-slide :class="'HomeHeader-Swiper'+index" v-for='(data,index) in HomePageSwiperArr' :key='index'><router-link tag='span'  replace :to="{name:data.Url}">{{data.Title}}</router-link></swiper-slide>
       </swiper>
+      <a class='search' href="https://gdtvshop.weixinmvp.com/Wap/Shop/Search.aspx">
+        {{SearchMess}}
+      </a>
   </div>
 </template>
 
@@ -79,6 +82,9 @@ export default {
   computed: {
     HeaderSwiper () {
       return this.$refs.HeaderSwiper.swiper
+    },
+    SearchMess () {
+      return this.$store.state.home.SEARCH_MESS
     }
   },
   components: {
@@ -144,6 +150,7 @@ export default {
 <style scoped lang='less'>
 @rem: 46.875rem;
 .HomeHeader {
+   max-width: 600px;
   position: fixed;
   background: white;
   z-index: 100;
@@ -166,17 +173,17 @@ export default {
       }
     }
     .HomeHeader-Message {
-      width: 100 / @rem;
+      width: 90/ @rem;
       float: left;
       height: 100%;
       display: block;
       box-sizing: border-box;
-      padding-left: 26 / @rem;
+      padding-left: 28 / @rem;
       background: transparent;
       box-sizing: border-box;
       margin-top: 2 / @rem;
       img {
-        width: 80%;
+        width: 90%;
       }
     }
   }
@@ -208,6 +215,19 @@ export default {
       color: #b4282d;
       font-weight: 580;
     }
+  }
+  .search{
+    position: absolute;
+    top: 12/@rem;
+    left: 3.62666667rem;
+    font-size: .64rem;
+    font-weight: 500;
+    width: 9.6rem;
+    display: block;
+    color: #a0a0a1;
+    height: 1.38666667rem;
+    line-height: 1.38666667rem;
+    text-decoration: none;
   }
 }
 </style>

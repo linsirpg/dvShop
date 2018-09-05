@@ -2,7 +2,7 @@
   <div class='HotSale' v-if='Data && Data.length > 0'>
     <div class='hotsaletitle'>热卖爆款</div>
       <div class='HotSale-Swiper'>
-        <swiper>
+        <swiper :options="HotSaleSwiper" >
           <swiper-slide v-for='(item, index) in DataArr' :key='index'>
             <div v-for='(product, productIndex) in Data.slice(index*9,index*9+9)' :key='productIndex'>
               <a :href="product.Url">
@@ -16,6 +16,7 @@
               <img src="../../../assets/images/more.jpg" alt="" style='width:100%;'>
             </a>
           </swiper-slide>
+          <div class="Hot-swiper-pagination"  slot="pagination"></div>
         </swiper>
     </div>
   </div>
@@ -27,6 +28,17 @@ export default {
   components: {
     swiper,
     swiperSlide
+  },
+  data () {
+    return {
+      HotSaleSwiper: {
+        resistanceRatio: 0,
+        pagination: {
+          el: '.Hot-swiper-pagination',
+          bulletActiveClass: 'area-bullet-active'
+        }
+      }
+    }
   },
   computed: {
     DataArr () {
@@ -80,5 +92,18 @@ export default {
             text-align: center;
         }
     }
+}
+
+.Hot-swiper-pagination{
+  text-align:center ;
+  span{
+    position: relative;
+    top:-6px;
+
+  }
+}
+.area-bullet-active{
+  background: #ba3d3f !important;
+  opacity: 1;
 }
 </style>
